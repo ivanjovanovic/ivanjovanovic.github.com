@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title></title>
+  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2011-07-24T18:47:44+02:00</updated>
+  <id>http://yoursite.com/</id>
+  <author>
+    <name>Your Name</name>
+    
+  </author>
+
+  
+  <entry>
+    <title>Test for Octopuss Publishing</title>
+    <link href="http://yoursite.com/blog/2011/07/24/test-for-octopuss-publishing"/>
+    <updated>2011-07-24T18:47:00+02:00</updated>
+    <id>http://yoursite.com/blog/2011/07/24/test-for-octopuss-publishing</id>
+    <content type="html">
+</content>
+  </entry>
+  
+</feed>
