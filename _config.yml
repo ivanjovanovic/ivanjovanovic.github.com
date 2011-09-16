@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://ivanjovanovic.github.com
+title: My GitHub coverage blog
+subtitle: Things I code.
+author: Ivan Jovanovic
 simple_search: http://google.com/search
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
@@ -38,7 +38,7 @@ recent_posts: 5 # Posts in the sidebar Recent Posts section
 # ----------------------- #
 
 # Twitter
-twitter_user:
+twitter_user: ivanjovanovic
 twitter_tweet_count: 4
 twitter_show_replies: false
 twitter_follow_button: true
@@ -61,4 +61,4 @@ delicious_count: 3
 disqus_short_name:
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: "UA-800972-6"
