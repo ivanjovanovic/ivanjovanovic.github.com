@@ -1,0 +1,17 @@
+--- 
+layout: post
+title: Preserving ordering with WHERE IN() clause in MySQL
+tags: 
+- mysql
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "1"
+  dsq_thread_id: "374041919"
+---
+Today I ran into the code that pulls from database list of elements with <code>SELECT * FROM table WHERE id IN(2,5,3,16,22,56,48)</code> where order of ids is important to be preserved after results found. When using SELECT this way you will get the results for every id but ordered by id in ascending order. I was looking around and found neat solution to make MySQL work for you to preserve the order of returned results. With ORDER BY FIELD clause like here <strong>SELECT * FROM table WHERE id IN (1,5,2,13,4) ORDER BY FIELD(id, 1,5,2,13,4)</strong> you can keep the initial ordering.
+
+What is the catch. This way <strong>id</strong> field can not be used as indexed. Therefore, <strong>EXPLAIN SELECT * FROM table WHERE id IN (1,5,2,13,4) ORDER BY FIELD(id, 1,5,2,13,4)</strong> would give you the information that it is using <strong>filesort</strong> for results ordering which is not so nice. In general, when you have <strong>id</strong>s as the array with the ordering you need, it probably needs less resources to reorganize them in memory instead of letting MySQL doing it with <strong>filesort.</strong>
+
+I'll take some banchmarking tests on this to see about the concrete numbers that confirm or negate my presumption.

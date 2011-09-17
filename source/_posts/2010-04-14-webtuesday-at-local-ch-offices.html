@@ -1,0 +1,29 @@
+--- 
+layout: post
+title: Webtuesday at local.ch offices
+tags: 
+- community
+- local.ch
+- webtuesday
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "1"
+  _aioseop_keywords: local.ch, webtuesday, memonic, webservice, php, python, zurich, web, community
+  _aioseop_description: Webtuesday on 13th Aptil 2010 held in local.ch offices. Memonic.com co-founders gave talk about architecture and tools behind their startup.
+  _aioseop_title: webtuestay community meeting at local.ch, memonic tech talk
+---
+Every first Tuesday of a month, Zürich oriented web community gather for an evening of tech talks and some beer for, so called, <a title="Webtuesday web site" href="http://webtuesday.ch/">webtuesday</a>. Yesterday, we had pleasure to host event at  <a title="Local.ch web site" href="http://local.ch/">local.ch</a> for the first time as unofficial opening for the community after movement to <a title="Local.ch address" href="http://yellow.local.ch/en/d/Zuerich/8001/Internet/local.ch-ag-jXdlhL7d_gnuD1d-TjoTTw?what=local.ch">new offices</a>. As Harry <a title="Harry's twitter status" href="http://twitter.com/hfuecks/status/12115799946">tweeted</a> already during the event, it was pretty packed. I was personally happy to see lot of people coming since this was only my second webtuesday since I started working for local.ch 6 months ago.
+
+[caption id="" align="alignleft" width="336" caption="Packed webtuesday @localch offices (by Harry Fuecks)"]<a href="http://twitter.com/hfuecks/status/12115799946"><img class="  " title="Packed webtuestad @localch offices" src="http://a.yfrog.com/img707/5599/4lmg.jpg" alt="Packed Webtuesday @localch offices" width="336" height="252" /></a>[/caption]
+
+This time <a title="Patrice's blog" href="http://weblog.patrice.ch/">Patrice</a> and Chris from <a title="Memonic" href="http://memonic.com">memonic.com</a> gave great talk on the current state of the architecture and tools that are behind their startup. Since both of them worked for local.ch before (Patrice as Lead of Frontend Development, Chris as backend Java developer)  it was interesting to see how much they kept and where they improved along the way.
+
+Interesting point was the choice of the language for their startup. At local.ch, we are kind of separated on frontend and backend development, before all, by the languages we use. Shortly, PHP on the frontend and Java in backend with HTTP communication in between, XML result got from backend parsed by XSL to produce HTML. At Memonic they decided to bring that together and make gap between backend and frontend development smaller by choosing Python as common language. Having experience with the Scrum and challenges which this kind of separation between frontend and backend carries, I see this as reasonable decision. I was surprised to hear that none of them had professional experience with Python before founding Memonic.
+
+Their architecture is highly web service oriented. The way Patrice conceptually sees the architecture can be paraphrased like this:
+<blockquote>"I see web services in our architecture as classes are used traditionally, or maybe better, as components of the traditional framework"</blockquote>
+end of lousy paraphrase :). So, if we take Zend Framework for example: imagine that instead of having Zend_Auth, Zend_Session, Zend_Log, Zend_Mail ... and sending messages to their objects, you have web services that expose interfaces over HTTP. On the <a title="Memonic blog post" href="http://blog.memonic.com/archive/2010/04/14/webtuesday-memonic-architecture.html">slides Patrice provided</a> can be seen in smaller detail way their architecture is broken into smallest possible web services that communicate among each other. Web services are based on <a title="wsgiservice on GitHub" href="http://github.com/pneff/wsgiservice">wsgiservice</a> (Python WSGI framework to create REST web service) library that is open sourced by Patrice. One thing I was interested is what is the performance loss in HTTP communication overhead between components. In current state of the load they do not see it as problem and they see using HTTP features as e.g. caching more valuable than performance loss introduced.
+
+Here are some links, if you are more interested to find out about <a title="Local.ch - official website" href="http://www.local.ch/en/s/aboutus/facts_and_figures">local.ch</a>, <a title="Webtuesday website" href="http://webtuesday.ch">webtuesday</a> or <a title="Keep the essential, memonic.com website" href="http://memonic.com/">memonic.com</a>.

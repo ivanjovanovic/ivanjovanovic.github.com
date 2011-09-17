@@ -41,6 +41,8 @@
 # <pre><code>&lt;sarcasm> Ooooh, sarcasm... How original!&lt;/sarcasm></code></pre>
 # </figure>
 #
+
+require 'ruby-debug'
 module Jekyll
 
   class CodeBlock < Liquid::Block
