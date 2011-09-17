@@ -41,6 +41,8 @@
 # <pre><code>&lt;sarcasm> Ooooh, sarcasm... How original!&lt;/sarcasm></code></pre>
 # </figure>
 #
+
+require 'ruby-debug'
 require './plugins/pygments_code'
 require './plugins/raw'
 
@@ -88,8 +90,8 @@ module Jekyll
         source += "#{tableize_code(code.lstrip.rstrip.gsub(/</,'&lt;'))}</figure>"
       end
       source = safe_wrap(source)
-      source = context['pygments_prefix'] + source if context['pygments_prefix']
-      source = source + context['pygments_suffix'] if context['pygments_suffix']
+      # source = context['pygments_prefix'] + source if context['pygments_prefix']
+      # source = source + context['pygments_suffix'] if context['pygments_suffix']
     end
   end
 end

@@ -1,6 +1,7 @@
 @import "boilerplate2";
 @import "colors";
-// @import "syntax";
+@import "typography";
+@import "code";
 
 body {
   background-color: $base03;
@@ -50,7 +51,6 @@ header {
 }
 
 article {
-
   color: $base0;
   line-height: 24px;
   font-size: 14px;

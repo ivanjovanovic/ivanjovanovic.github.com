@@ -13,6 +13,7 @@ meta:
   _syntaxhighlighter_encoded: "1"
   dsq_thread_id: "374020783"
 ---
+
 If we look at the developments in the software testing area, step beyond in evolution after <a title="Razvoj vođen testovima" href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a> is, so called, <a title="Razvoj softvera vođen ponašanjem" href="http://en.wikipedia.org/wiki/Behavior_Driven_Development">BDD</a> (Behavior Deriven Development). It is hard to describe BDD in couple of sentences. Excerpt taken from Wikipedia says:
 <blockquote>BDD focuses on obtaining a clear understanding of desired software behaviour through discussion with stakeholders. It extends <a title="Test-driven development" href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a> by writing test cases in a natural language that non-programmers can read. Behavior-driven developers use their native language to describe the purpose and benefit of their code. This allows the developers to focus on why the code should be created, rather than the technical details, and minimizes translation between the technical language in which the code is written and the domain language spoken by the business, users, stakeholders, project management, etc.</blockquote>
 If this looks a bit complicated, in one sentence it would mean: <strong>BDD helps programmers and non-technical stakeholders understand each other better and develop software which will be the most representative model of the problem solved by writing the software  itself. </strong>
@@ -31,7 +32,7 @@ rm spec/*[/bash]
 
 Also, from <code>SpecRunner.html</code> file we delete references to just removed scripts. Therefore, part which includes them stays empty like this:
 
-{% codeblock lang.js htmlscript="1" %}
+{% codeblock lang:js %}
 ...
 
   &lt;!-- include source files here... --&gt;
@@ -89,7 +90,7 @@ If we run <code>SpecRunner.html</code> again, we can see that our test passes,
 <h3>Rest of implementation</h3>
 Now, when we know for the principle  <strong>"First failing test, then implementation"</strong> we can add new functionalities to our simple example. We add next test:
 
-{% codeblock lang.js %}
+{% codeblock lang:js %}
     it(&quot;should be able to register callback function&quot;, function () {
         // define function to be placed into the observer register
         function callback() { return null; }
@@ -102,7 +103,7 @@ Now, when we know for the principle  <strong>"First failing test, then implemen
 
 And implementation that makes this test pass:
 
-{% codeblock lang.js %}
+{% codeblock lang:js %}
 rs.ji.observer = {
     callbacks: [],
     register: function (callback) {
@@ -116,7 +117,7 @@ rs.ji.observer = {
 
 We want to check if we can register multiple callbacks. This functionality should be supported already, but we write test to confirm this:
 
-{% codeblock lang.js %}
+{% codeblock lang:js %}
     // before every test we reset array of callbacks
     beforeEach(function () {
         rs.ji.observer.callbacks = [];
@@ -140,7 +141,7 @@ If we run <code>SpecRunner.html</code> in browser, all tests should pass.
 
 Last thing our observer should do to satisfy its basic purpose is to update callback functions with some new information. That means it should be able to call them with some data. To define this functionality we write new test:
 
-{% codeblock lang.js %}
+{% codeblock lang:js %}
     it(&quot;should provide update method to execute all callbacks with provided data&quot;, function () {
         window.callback1 = function () { return null; }
         window.callback2 = function () { return null; }
@@ -166,7 +167,7 @@ As a helper, we will add <a title="jQuery biblioteka" href="http://code.jquery.
 
 And we implement code to satisfy the test:
 
-{% codeblock lang.js %}
+{% codeblock lang:js %}
 // observer implementation
 rs.ji.observer = {
     callbacks: [],
@@ -235,7 +236,7 @@ describe(&quot;rs.ji.observer&quot;, function () {
     });
 });
 {% endcodeblock %}
-{% codeblock lang.js %}
+{% codeblock lang:js %}
 // defining so called namespace objects so I can namespace observer into
 // rs.ji.observer
 var rs = {};
