@@ -1,7 +1,7 @@
 function getNav(){
-  var mobileNav = $('body > nav fieldset[role=site-search]').after('<fieldset role="mobile-nav"></fieldset>').next().append('<select></select>');
+  var mobileNav = $('nav[role=navigation] fieldset[role=site-search]').after('<fieldset role="mobile-nav"></fieldset>').next().append('<select></select>');
   mobileNav.children('select').append('<option value="">Navigate&hellip;</option>');
-  $($('body > nav ul[role=main-nav] a')).each(function(link) {
+  $($('ul[role=main-navigation] a')).each(function(link) {
     mobileNav.children('select').append('<option value="'+link.href+'">&bull; '+link.text+'</option>')
   });
   mobileNav.children('select').bind('change', function(event){
@@ -48,8 +48,7 @@ function testFeatures() {
 
 function addCodeLineNumbers(){
   if (navigator.appName == 'Microsoft Internet Explorer') { return }
-  $('div.highlight pre code').each(function(el){ addDivLines(el); });
-  $('div.highlight, div.gist-highlight').each(function(code){
+  $('div.gist-highlight').each(function(code){
     var tableStart = '<table cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter">';
     var lineNumbers = '<pre class="line-numbers">';
     var tableMiddle = '</pre></td><td class="code" width="100%">';
@@ -61,16 +60,6 @@ function addCodeLineNumbers(){
     table = tableStart + lineNumbers + tableMiddle + '<pre>'+$('pre', code).html()+'</pre>' + tableEnd;
     $(code).html(table);
   });
-}
-function addDivLines(el){
-  var content = $(el).html();
-  var lines = content.replace(/\s*$/g, '').split(/\n/);
-  var count = lines.length;
-  $(lines).each(function(line, index){
-    if(line == '') line = ' ';
-    lines[index] = '<div class="line">' + line + '</div>';
-  });
-  $(el).html(lines.join(''));
 }
 
 function flashVideoFallback(){

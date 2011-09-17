@@ -1,8 +1,7 @@
 ---
 layout: default
-meta: false
-footer: false
 ---
+
 <div class="blog-index">
 {% assign index = true %}
 {% for post in paginator.posts %}
@@ -14,13 +13,11 @@ footer: false
 <nav role="pagination">
   <div>
     {% if paginator.next_page %}
-      <a class="prev" href="/page{{paginator.next_page}}/">&larr; Older</a>
+      <a class="prev" href="{{paginator.next_page}}">&larr; Older</a>
     {% endif %}
     <a href="/blog/archives">Blog Archives</a>
-    {% if paginator.previous_page and paginator.previous_page > 1 %}
-      <a class="next" href="/page{{paginator.previous_page}}/">Newer &rarr;</a>
-    {% elsif paginator.previous_page %}
-      <a class="next" href="/">Newer &rarr;</a>
+    {% if paginator.previous_page %}
+    <a class="next" href="{{paginator.previous_page}}">Newer &rarr;</a>
     {% endif %}
   </div>
 </nav>
@@ -36,3 +33,10 @@ footer: false
 </script>
 {% endif %}
 </div>
+<aside role=sidebar>
+  {% if site.blog_index_asides.size %}
+    {% include_array blog_index_asides %}
+  {% else %}
+    {% include_array default_asides %}
+  {% endif %}
+</aside>
