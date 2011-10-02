@@ -4,7 +4,7 @@
   <title>In search for the next abstraction</title>
   <link href="http://ivanjovanovic.com/atom.xml" rel="self"/>
   <link href="http://ivanjovanovic.com/"/>
-  <updated>2011-10-03T00:08:44+02:00</updated>
+  <updated>2011-10-03T00:20:01+02:00</updated>
   <id>http://ivanjovanovic.com/</id>
   <author>
     <name>Ivan Jovanovic</name>
@@ -13,10 +13,10 @@
 
   
   <entry>
-    <title>There&#8217;s a RFC for That</title>
-    <link href="http://ivanjovanovic.com/2011/10/02/theres-a-rfc-for-that"/>
+    <title>There&#8217;s an RFC for That</title>
+    <link href="http://ivanjovanovic.com/2011/10/02/theres-an-rfc-for-that"/>
     <updated>2011-10-02T23:39:00+02:00</updated>
-    <id>http://ivanjovanovic.com/2011/10/02/theres-a-rfc-for-that</id>
+    <id>http://ivanjovanovic.com/2011/10/02/theres-an-rfc-for-that</id>
     <content type="html">&lt;p&gt;Too often I see colleagues developers employing Google and lurking around
 random results to find answers on some typical web development questions
 as &lt;strong&gt;&amp;quot;What does must-revalidate in Cache-Control does?&amp;quot;&lt;/strong&gt;, or &lt;strong&gt;&amp;quot;Is ETag
