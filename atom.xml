@@ -4,13 +4,46 @@
   <title>In search for the next abstraction</title>
   <link href="http://ivanjovanovic.com/atom.xml" rel="self"/>
   <link href="http://ivanjovanovic.com/"/>
-  <updated>2011-10-02T22:28:10+02:00</updated>
+  <updated>2011-10-03T00:08:44+02:00</updated>
   <id>http://ivanjovanovic.com/</id>
   <author>
     <name>Ivan Jovanovic</name>
     
   </author>
 
+  
+  <entry>
+    <title>There&#8217;s a RFC for That</title>
+    <link href="http://ivanjovanovic.com/2011/10/02/theres-a-rfc-for-that"/>
+    <updated>2011-10-02T23:39:00+02:00</updated>
+    <id>http://ivanjovanovic.com/2011/10/02/theres-a-rfc-for-that</id>
+    <content type="html">&lt;p&gt;Too often I see colleagues developers employing Google and lurking around
+random results to find answers on some typical web development questions
+as &lt;strong&gt;&amp;quot;What does must-revalidate in Cache-Control does?&amp;quot;&lt;/strong&gt;, or &lt;strong&gt;&amp;quot;Is ETag
+header forcing revalidation?&amp;quot;&lt;/strong&gt; and similar. Usually it ends up in
+deciphering random answer on Stack Overflow or some other community web
+site.&lt;/p&gt;
+
+&lt;p&gt;First, of course that there is huge amount of knowledge out there and
+very smart people answering with deep insight on every of these
+questions. But still, they do present most often only their
+interpretation of certain clearly defined and described standard. Answers also often know to be either
+incomplete or plainly wrong. Second, most often these kind of responses
+are representing how things are implemented in certain technology, Rails for example of any other.
+That way usually you don&amp;#8217;t come to the answer of &lt;code&gt;why&lt;/code&gt; but &lt;code&gt;how&lt;/code&gt;
+something is done. And to grow knowledge I always tend to go deeper and
+understand why something is done in certain way.&lt;/p&gt;
+
+&lt;p&gt;Take HTTP protocol as example, it is defined in &lt;a href=&quot;http://www.ietf.org/rfc/rfc2616.txt&quot;&gt;RFC2616&lt;/a&gt;
+where everything you need to know about it is written. It has a bit
+unfriendly writing style, but once you get used to it you can see that
+it is in fact very clear and unambiguous. Other benefit of getting used to
+read RFC documents is that they are written in similar style and once
+you get used to you can benefit from vast amount of them. At the end RFC
+are the rules which define most of the web implementation in wide use on
+the net. Let the HTML5 mess aside ;)&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>CoffeeScript implementation of Conway&#8217;s Game of Life</title>

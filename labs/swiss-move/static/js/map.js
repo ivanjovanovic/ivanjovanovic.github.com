@@ -13,9 +13,9 @@ var vizualizer = (function(){
         
         layer = new google.maps.FusionTablesLayer({
             query: {
-                select: 'geometry',
-                from: '1707058',
-                where: type + "=" + zip
+                select: 'geometry_from',
+                from: '1707291',
+                where: "to = '8052'"
             },
             clickable: false,
             map: map
@@ -80,8 +80,8 @@ $(document).ready(function(){
     google.maps.event.addListener(zip_layer, 'click', function(ev) {
         var zip4 = ev.row.zip4.value;
         ev.infoWindowHtml = 'Zip: ' + zip4 + '<br/><br/>';
-        ev.infoWindowHtml += '<a href="#" onclick="vizualizer.highlight(' + zip4 + ', \'to\')">Move-ins</a><br/>';
-        ev.infoWindowHtml += '<a href="#" onclick="vizualizer.highlight(' + zip4 + ', \'from\')">Move-outs</a>';
+        ev.infoWindowHtml += '<a href="#" onclick="vizualizer.highlight(' + zip4 + ', \'from\')">Move-ins</a><br/>';
+        ev.infoWindowHtml += '<a href="#" onclick="vizualizer.highlight(' + zip4 + ', \'to\')">Move-outs</a>';
     });
     
 });
