@@ -1,0 +1,43 @@
+--- 
+layout: post
+title: CoffeeScript implementation of Conway's Game of Life
+tags: 
+- jasmine
+- javascript
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "1"
+  _syntaxhighlighter_encoded: "1"
+  _aioseop_keywords: coffeescript, javascript, conways game of life
+  dsq_thread_id: "374878941"
+---
+Over the weekend I wanted to get a bit deeper into the <a title="CoffeeScript website" href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a> and get around how it feels working with it. I gave myself task to do something simple  but inspiring. Therefore I implemented simple version of Conway's Game of Life to be played in browser. <a title="CoffeeScript Conway's Game of LIfe" href="http://blog.ivanjovanovic.com/labs/cgol/">Go here to see how it looks like</a>.
+<h3>CoffeeScript</h3>
+<blockquote><strong>CoffeeScript is a little language that compiles into JavaScript.</strong> Underneath all of those embarrassing braces and semicolons, JavaScript has always had a gorgeous object model at its heart. CoffeeScript is an attempt to expose the good parts of JavaScript in a simple way.</blockquote>
+In other words, CoffeeScript is an attempt to replace JavaScript syntax with a better one based on experiences from Ruby and Python worlds. Beside that it introduces couple of new abstractions which natively do not exist in the vanilla JavaScript like classes, list comprehensions, return of multiple values from function etc.
+
+CoffeeScript brings a lot of relaxation on the original JavaScript syntax and makes writing it at first weird experience but only until you get used to it. Afterwards it gets obvious that it takes much less to write the same thing in CoffeeScript than in plain JavaScript.
+<h3>My observations on developing with CoffeeScript</h3>
+First and obvious observation is that with CoffeeScript you need additional tool in your toolset which will continuously compile your work to JavaScript. I used Jasmine for writing tests and I based my setup on <a href="https://gist.github.com/956438">this gist</a> which proposes using <a title="guard Ruby gem on GitHub" href="https://github.com/guard/guard">guard Ruby gem</a> for tracking changes and compiling CoffeeScript files into JavaScript ones.
+
+It looked a bit weird at start, but after couple of hours playing it started getting better. One thing I had always to do is to look in the actual compiled JavaScript to see how to do some things i.e. how to pass index to function that maps an array. But it was intuitive enough that I almost didn't need official documentation. Here I have to tell that it might not be as intuitive to people without experience with writing Ruby and Python code or lack of understanding for rather mathematical
+
+[code lang="javascript"](a, b) -&gt; a + b[/code]
+
+function notation.
+
+At the end I really liked it. Problem that I was solving didn't need using some advanced CoffeeScript constructs like classes but one that I used like multiple return values from the function really show how much you can get out of language if you have some basic tools implemented within.
+
+Last several months I was developing mostly in the Rails framework and since <a title="Ruby on Rails 3.1 enabling CoffeeScript by default" href="http://weblog.rubyonrails.org/2011/5/22/rails-3-1-release-candidate">Rails 3.1</a> is going to have CoffeeScript enabled by default I suppose I'll give CoffeeScript a chance again in next months and write more about experiences developing more complex things again in future.
+<h3>Code is on GitHub</h3>
+You can find the source code for the implementation of the game on <a title="Source code for CoffeeScript implementation of Conway's Game of Life" href="https://github.com/ivanjovanovic/coffee-cgol">GitHub</a>
+<h3>Related links</h3>
+<ul>
+	<li><a title="CoffeeScript implementation of Conway's Game of Life" href="http://blog.ivanjovanovic.com/labs/cgol/">My CoffeeScript implementation of Conway's Game of Life</a></li>
+	<li><a title="CoffeeScript official page" href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a></li>
+	<li><a title="Conway's game of life on Wikipedia" href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game of LIfe on Wikipedia</a></li>
+</ul>
+
+&nbsp;
