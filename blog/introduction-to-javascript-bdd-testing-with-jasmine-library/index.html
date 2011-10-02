@@ -46,17 +46,17 @@
 
 
   <h1 class="article-title">Introduction to JavaScript BDD Testing With Jasmine Library</h1>
-  <div class="article-content">If we look at the developments in the software testing area, step beyond in evolution after <a title="Razvoj vođen testovima" href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a> is, so called, <a title="Razvoj softvera vođen ponašanjem" href="http://en.wikipedia.org/wiki/Behavior_Driven_Development">BDD</a> (Behavior Deriven Development). It is hard to describe BDD in couple of sentences. Excerpt taken from Wikipedia says:
+  <div class="article-content"><p>If we look at the developments in the software testing area, step beyond in evolution after <a title="Razvoj vođen testovima" href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a> is, so called, <a title="Razvoj softvera vođen ponašanjem" href="http://en.wikipedia.org/wiki/Behavior_Driven_Development">BDD</a> (Behavior Deriven Development). It is hard to describe BDD in couple of sentences. Excerpt taken from Wikipedia says:
 <blockquote>BDD focuses on obtaining a clear understanding of desired software behaviour through discussion with stakeholders. It extends <a title="Test-driven development" href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a> by writing test cases in a natural language that non-programmers can read. Behavior-driven developers use their native language to describe the purpose and benefit of their code. This allows the developers to focus on why the code should be created, rather than the technical details, and minimizes translation between the technical language in which the code is written and the domain language spoken by the business, users, stakeholders, project management, etc.</blockquote>
 If this looks a bit complicated, in one sentence it would mean: <strong>BDD helps programmers and non-technical stakeholders understand each other better and develop software which will be the most representative model of the problem solved by writing the software  itself. </strong>
 <h2>Jasmine: BDD for your JavaScript</h2>
-<a title="Jasmine: BDD za vaš JavaScript" href="http://pivotal.github.com/jasmine/">Jasmine</a> is a library for BDD testing of your JavaScript. It offers range of possibilities to describe software functionalities by simple and descriptive tests, which is one of the basic principles of BDD based development. This way tests usually serve as the most accurate software documentation. More about Jasmine library on the <a title="Jasmine na GitHub" href="https://github.com/pivotal/jasmine">GitHub repository</a>.
+<a title="Jasmine: BDD za vaš JavaScript" href="http://pivotal.github.com/jasmine/">Jasmine</a> is a library for BDD testing of your JavaScript. It offers range of possibilities to describe software functionalities by simple and descriptive tests, which is one of the basic principles of BDD based development. This way tests usually serve as the most accurate software documentation. More about Jasmine library on the <a title="Jasmine na GitHub" href="https://github.com/pivotal/jasmine">GitHub repository</a>.</p>
 
-After you download standalone Jasmine distribution from <a title="Nezavisna distribucija Jasmine biblioteke" href="http://pivotal.github.com/jasmine/download.html">here</a> you&#8217;ll find in the archive all you need to write your first tests together with the example of your code organization. The most important fie is <strong>SpecRunner.html</strong> which, when run in browser, will execute tests and give you report about the state of the tests. SpecRunner.html is very simple and self explanatory. <strong>lib</strong> folder contains Jasmine library, <strong>src</strong> folder contains code to be tested and  <strong>spec</strong> folder contains actual software specifications as tests.
+<p>After you download standalone Jasmine distribution from <a title="Nezavisna distribucija Jasmine biblioteke" href="http://pivotal.github.com/jasmine/download.html">here</a> you&#8217;ll find in the archive all you need to write your first tests together with the example of your code organization. The most important fie is <strong>SpecRunner.html</strong> which, when run in browser, will execute tests and give you report about the state of the tests. SpecRunner.html is very simple and self explanatory. <strong>lib</strong> folder contains Jasmine library, <strong>src</strong> folder contains code to be tested and  <strong>spec</strong> folder contains actual software specifications as tests.</p>
 
-Further, I will implement simple object that can register multiple callback functions and call them with given data. Something like simple observer. I will always first write tests and then implement functionality to make tests pass.
+<p>Further, I will implement simple object that can register multiple callback functions and call them with given data. Something like simple observer. I will always first write tests and then implement functionality to make tests pass.
 <h2>Example of simple JavaScript observer with Jasmine tests</h2>
-We start from the downloaded archive for standalone Jasmine library. We need to delete example code provided with the library to implement our own example.
+We start from the downloaded archive for standalone Jasmine library. We need to delete example code provided with the library to implement our own example.</p>
 
 <figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
@@ -64,7 +64,7 @@ We start from the downloaded archive for standalone Jasmine library. We need to 
 </div><div class='line'>rm spec/*
 </div></code></pre></td></tr></table></div></figure>
 
-Also, from `SpecRunner.html` file we delete references to just removed scripts. Therefore, part which includes them stays empty like this:
+<p>Also, from <code>SpecRunner.html</code> file we delete references to just removed scripts. Therefore, part which includes them stays empty like this:</p>
 
 <figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
@@ -103,7 +103,7 @@ According to this we create file to place our tests in <code>spec/ObserverSpec.
 </div><div class='line'><span class="p">});</span>
 </div></code></pre></td></tr></table></div></figure>
 
-And we add this specification to <code>SpecRunner.html</code> to execute it:
+<p>And we add this specification to <code>SpecRunner.html</code> to execute it:</p>
 
 <figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
@@ -111,11 +111,11 @@ And we add this specification to <code>SpecRunner.html</code> to execute it:
 </div><div class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;spec/ObserverSpec.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </div></code></pre></td></tr></table></div></figure>
 
-If we now open <code>SpecRunner.html</code> in some browser (i.e. Google Chrome) we will see one failing test.
+<p>If we now open <code>SpecRunner.html</code> in some browser (i.e. Google Chrome) we will see one failing test.</p>
 
-It is important to take a look in how our test looks like. If you read the test you&#8217;ll see how descriptive it is and how with simple words expresses how our code should behave, although example is very simple. Here it takes some creativity of the developer to make tests really valuable but more than that is important that developer have deep understanding of the dictionary and terminology of the domain for which software is developed because understanding of the domain should be heavily embedded in the test definitions.
+<p>It is important to take a look in how our test looks like. If you read the test you&#8217;ll see how descriptive it is and how with simple words expresses how our code should behave, although example is very simple. Here it takes some creativity of the developer to make tests really valuable but more than that is important that developer have deep understanding of the dictionary and terminology of the domain for which software is developed because understanding of the domain should be heavily embedded in the test definitions.</p>
 
-Next step is to implement the code which will satisfy test. We will create file <code>src/observer.js</code>
+<p>Next step is to implement the code which will satisfy test. We will create file <code>src/observer.js</code></p>
 
 <figure role=code><figcaption><span>lang.js </span></figcaption>
  <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
@@ -134,16 +134,16 @@ Next step is to implement the code which will satisfy test. We will create file�
 </div><div class='line'><span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span> <span class="o">=</span> <span class="p">{};</span>
 </div></code></pre></td></tr></table></div></figure>
 
-And we will add it to <code>SpecRunner.html</code>:
+<p>And we will add it to <code>SpecRunner.html</code>:</p>
 
-[html]
-<!-- include source files here... -->
+<p>[html]
+&lt;!&#8211; include source files here&#8230; &#8211;&gt;
 <script type="text/javascript" src="src/observer.js"></script>
-[/html]
+[/html]</p>
 
-If we run <code>SpecRunner.html</code> again, we can see that our test passes, it is green :)
+<p>If we run <code>SpecRunner.html</code> again, we can see that our test passes, it is green :)
 <h3>Rest of implementation</h3>
-Now, when we know for the principle  <strong>&#8220;First failing test, then implementation&#8221;</strong> we can add new functionalities to our simple example. We add next test:
+Now, when we know for the principle  <strong>&quot;First failing test, then implementation&quot;</strong> we can add new functionalities to our simple example. We add next test:</p>
 
 <figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
@@ -163,7 +163,7 @@ Now, when we know for the principle  <strong>&#8220;First failing test, then im
 </div><div class='line'>    <span class="p">});</span>
 </div></code></pre></td></tr></table></div></figure>
 
-And implementation that makes this test pass:
+<p>And implementation that makes this test pass:</p>
 
 <figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
@@ -185,7 +185,7 @@ And implementation that makes this test pass:
 </div><div class='line'><span class="p">};</span>
 </div></code></pre></td></tr></table></div></figure>
 
-We want to check if we can register multiple callbacks. This functionality should be supported already, but we write test to confirm this:
+<p>We want to check if we can register multiple callbacks. This functionality should be supported already, but we write test to confirm this:</p>
 
 <figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
@@ -219,11 +219,11 @@ We want to check if we can register multiple callbacks. This functionality shoul
 </div><div class='line'>    <span class="p">});</span>
 </div></code></pre></td></tr></table></div></figure>
 
-Programmers often use <code>print, echo</code> and friends to test code for certain functionalities. That takes time as for writing a test, but from other side tests are possible to be executed all the time after this initial check is done even when we move to implement something else.
+<p>Programmers often use <code>print, echo</code> and friends to test code for certain functionalities. That takes time as for writing a test, but from other side tests are possible to be executed all the time after this initial check is done even when we move to implement something else.</p>
 
-If we run <code>SpecRunner.html</code> in browser, all tests should pass.
+<p>If we run <code>SpecRunner.html</code> in browser, all tests should pass.</p>
 
-Last thing our observer should do to satisfy its basic purpose is to update callback functions with some new information. That means it should be able to call them with some data. To define this functionality we write new test:
+<p>Last thing our observer should do to satisfy its basic purpose is to update callback functions with some new information. That means it should be able to call them with some data. To define this functionality we write new test:</p>
 
 <figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
@@ -249,9 +249,9 @@ Last thing our observer should do to satisfy its basic purpose is to update call
 </div><div class='line'>    <span class="p">});</span>
 </div></code></pre></td></tr></table></div></figure>
 
-Here we use some advanced techniques of <a title="Jasmine špijuniranje metoda" href="https://github.com/pivotal/jasmine/wiki/Spies">spying on methods</a> (SpyOn) in order to see if some method is called while other is executed.
+<p>Here we use some advanced techniques of <a title="Jasmine špijuniranje metoda" href="https://github.com/pivotal/jasmine/wiki/Spies">spying on methods</a> (SpyOn) in order to see if some method is called while other is executed.</p>
 
-As a helper, we will add <a title="jQuery biblioteka" href="http://code.jquery.com/jquery-1.6.2.min.js">jQuery library</a> to <code>src/jquery.js</code> location and add it to <code>SpecRunner.html</code> file:
+<p>As a helper, we will add <a title="jQuery biblioteka" href="http://code.jquery.com/jquery-1.6.2.min.js">jQuery library</a> to <code>src/jquery.js</code> location and add it to <code>SpecRunner.html</code> file:</p>
 
 <figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
@@ -261,7 +261,7 @@ As a helper, we will add <a title="jQuery biblioteka" href="http://code.jquery.
 </div><div class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;src/observer.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </div></code></pre></td></tr></table></div></figure>
 
-And we implement code to satisfy the test:
+<p>And we implement code to satisfy the test:</p>
 
 <figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
