@@ -53,7 +53,7 @@ For start, you should know that <a title="Git basics" href="http://progit.org/bo
 If there is a list of things to understand and clarify at start that I would recommend:
 <ul>
 	<li><a href="http://progit.org/book/ch2-0.html">Git basics</a></li>
-	<li>track -&gt; edit -&gt; stage -&gt; commit -&gt; push file lifecycle</li>
+	<li>track -> edit -> stage -> commit -> push file lifecycle</li>
 	<li><a href="http://stackoverflow.com/questions/292357/whats-the-difference-between-git-pull-and-git-fetch">fetching vs pulling</a> changes from remote origin</li>
 	<li>every Git repository of a project <a href="http://progit.org/book/ch3-5.html">represents part of one common history</a>, your local branches are just one part of it, remote origin as well and repositories of your colleagues too.</li>
 	<li><a href="http://progit.org/book/ch3-0.html">working with branches</a> properly and efficiently</li>
@@ -65,31 +65,47 @@ Great tool to explore and learn Git commands during your everyday work. It is ea
 
 First download the git-completion.bash file
 
-[code lang=&#8221;bash&#8221;]cd # to go to your home folder
-curl https://github.com/git/git/raw/master/contrib/completion/git-completion.bash -O[/code]
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+</pre></td><td class='code' width='100%'><pre><code class='bash'><div class='line'><span class="nb">cd</span> <span class="c"># to go to your home folder</span>
+</div><div class='line'>curl <span class="se">\ </span>
+</div><div class='line'>  https://github.com/git/git/raw/master/contrib/completion/git-completion.bash -O
+</div></code></pre></td></tr></table></div></figure>
 
 and then add this line to your ~/.bash_profile or however you name your profile file
 
-[code lang=&#8221;bash&#8221;]source ~/git-completion.bash[/code]
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+</pre></td><td class='code' width='100%'><pre><code class='bash'><div class='line'><span class="nb">source</span> ~/git-completion.bash
+</div></code></pre></td></tr></table></div></figure>
 <h3>Checking out remote branch</h3>
 Someone pushed new branch to remote repository and you are having tough time to start working on it. Use
 
-[code lang=&#8221;bash&#8221;]git fetch[/code]
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+</pre></td><td class='code' width='100%'><pre><code class='bash'><div class='line'>git fetch
+</div></code></pre></td></tr></table></div></figure>
 
 this will fetch all remote branches and put them in local repository
 
-[code lang=&#8221;bash&#8221;]git checkout -b local-branch-name origin/remote-branch-name[/code]
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+</pre></td><td class='code' width='100%'><pre><code class='bash'><div class='line'>git checkout -b <span class="nb">local</span>-branch-name origin/remote-branch-name
+</div></code></pre></td></tr></table></div></figure>
 
 will check out branch and set tracking between local and remote branch properly for you.
 <h3>Pushing and pulling only to and from current branch</h3>
 After you have finished your work on a branch, you want to push your changes. But git push command by default pushes changes from all branches if no other parameters are given. It can be configured in general to push only current branch with
 
-[code lang=&#8221;bash&#8221;]git config push.default current[/code]
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+</pre></td><td class='code' width='100%'><pre><code class='bash'><div class='line'>git config push.default current
+</div></code></pre></td></tr></table></div></figure>
 
 Regarding puling is a bit more complicated, since this is the option to be set for each branch. Probably it can be generalized. For example, you can have  a remote branch called funky-branch which is on the origin remote repository and local branch with same name funky-branch. Then we can pull only its changes if we set following config options for this local branch
 
-[code lang=&#8221;bash&#8221;]git config branch.funky-branch.remote origin
-git config branch.funky-branch.merge refs/heads/funky-branch[/code]
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+</pre></td><td class='code' width='100%'><pre><code class='bash'><div class='line'>git config branch.funky-branch.remote origin
+</div><div class='line'>git config branch.funky-branch.merge refs/heads/funky-branch
+</div></code></pre></td></tr></table></div></figure>
 
 now git pull works without pulling other branches along the way.
 
@@ -99,29 +115,37 @@ Git is extremely powerful and incredibly fast tool which enables us to make some
 <h3>Making current git branch visible in your command prompt</h3>
 Git is known for powerful branching possibilities. Although, it is hard to shuffle between branches and to always know in which you are currently. There is simple solution to this. You can add name of current branch to your command prompt by adding this to your shell profile script.
 
-[code lang=&#8221;bash&#8221;]
-# Set up git branch information in command prompt
-parse_git_branch() {
-git branch 2&gt; /dev/null | sed -e &#8216;/^[^*]/d&#8217; -e &#8216;s/* \(.*\)/[\1]/&#8217;
-}
-# Example of use of the function in command prompt $(parse_git_branch)
-PS1=&quot;\w\$(parse_git_branch) $ &quot;
-[/code]
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+</pre></td><td class='code' width='100%'><pre><code class='bash'><div class='line'><span class="c"># Set up git branch information in command prompt</span>
+</div><div class='line'>parse_git_branch<span class="o">()</span> <span class="o">{</span>
+</div><div class='line'>git branch 2&gt; /dev/null | sed -e <span class="s1">&#39;/^[^*]/d&#39;</span> -e <span class="s1">&#39;s/* \(.*\)/[\1]/&#39;</span>
+</div><div class='line'><span class="o">}</span>
+</div><div class='line'><span class="c"># Example of use of the function in command prompt $(parse_git_branch)</span>
+</div><div class='line'><span class="nv">PS1</span><span class="o">=</span><span class="s2">&quot;\w\$(parse_git_branch) $ &quot;</span>
+</div></code></pre></td></tr></table></div></figure>
 
 After resourcing your shell profile you&#8217;ll see current checkout branch name in command prompt whenever you enter git workspace folder.
 <h3>Selecting only part of a change for commit</h3>
 Usually changes we make are not perfectly clean, or currently changed files contain at least two unrelated changes. Git provides the way to select only a part of all the changes and stage them for commit. It is done by using:
 
-[code lang=&#8221;bash&#8221;]git app -p[/code]
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+</pre></td><td class='code' width='100%'><pre><code class='bash'><div class='line'>git app -p
+</div></code></pre></td></tr></table></div></figure>
 
 Then you would have a change to decide on every group of lines weather to include it or not, you can even split it to parts so you can select more granular way &#8230;
 <h3>Cleaning up repository with garbage collection</h3>
 Git doesn&#8217;t do garbage collection on the repositories by default which has couple of advantages. Commands don&#8217;t lose time to prune objects all the time and you have kind of history to refer to locally. But, over time it gets slower, which can be fixed with activating garbage collection.
 
-[code language=&#8221;javascript&#8221;]
-git gc &#8211;prune
-// or check `man git-gc` for more information about git garbage collection
-[/code]
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nx">git</span> <span class="nx">gc</span> <span class="o">--</span><span class="nx">prune</span>
+</div><div class='line'><span class="c1">// or check `man git-gc` for more information about git garbage collection</span>
+</div></code></pre></td></tr></table></div></figure>
 &nbsp;
 <h3>Getting up to more speed</h3>
 <a title="Six Revisions Git resources" href="http://sixrevisions.com/resources/git-tutorials-beginners/">Here</a> you can find extensive list of resources for learning Git with selection of top 10 sites that provide the best resources online.
