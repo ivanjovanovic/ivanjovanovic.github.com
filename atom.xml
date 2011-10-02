@@ -4,7 +4,7 @@
   <title>In search for the next abstraction</title>
   <link href="http://ivanjovanovic.github.com/atom.xml" rel="self"/>
   <link href="http://ivanjovanovic.github.com/"/>
-  <updated>2011-10-02T14:35:12+02:00</updated>
+  <updated>2011-10-02T14:43:26+02:00</updated>
   <id>http://ivanjovanovic.github.com/</id>
   <author>
     <name>Ivan Jovanovic</name>
@@ -479,7 +479,7 @@ Currently I live in Switzerland, country blessed by the best standard in the wor
 &lt;blockquote&gt;RHoK works by bringing together experts in development and volunteers with a broad set of skills in software development and design to solve problems defined by NGOs and other institutions which work in the area of disaster management.&lt;/blockquote&gt;
 Last weekend RHoK happend for the first time in Switzerland. &lt;a href=&quot;http://wernerkrippendorf.blogspot.com/&quot;&gt;Frank&lt;/a&gt;, driven by his experience from RHoK #2 in Berlin, organized great event in Basel and gathered around 20 of us to attack some of the &lt;a href=&quot;http://www.rhok.org/problems&quot;&gt;RHoK problem definitions&lt;/a&gt; we found interesting. On the following video you can see presentations of all the teams, their problem definitions and explanations of solutions.&lt;/p&gt;
 
-&lt;p&gt;http://www.youtube.com/watch?v=3y-afSoX_YA&lt;/p&gt;
+&lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/3y-afSoX_YA&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
 &lt;p&gt;I worked with &lt;a href=&quot;http://www.rhok.org/users/mullinger&quot;&gt;Max&lt;/a&gt;, &lt;a href=&quot;http://www.rhok.org/users/philipp&quot;&gt;Phillip&lt;/a&gt;, &lt;a href=&quot;http://www.rhok.org/users/delixfe&quot;&gt;Felix&lt;/a&gt;, &lt;a href=&quot;http://www.rhok.org/users/tomtomaso&quot;&gt;Thomas&lt;/a&gt; and Chad from &lt;a href=&quot;http://www.secondmuse.com&quot;&gt;SecondMuse&lt;/a&gt; on the &lt;a href=&quot;http://www.rhok.org/problems/hazards-map-field-use&quot;&gt;problem defined by Caritas Switzerland&lt;/a&gt;. Overall idea was to gather different sources of scientific GIS data for different global community risk related information like percentage of child hunger per country or intensity of cyclones in coastal areas and to present this information in usable way on one map with some tools to examine data more deep. Technically, the most difficult part of the problem is the fact that, as far I could understand, GIS area lacks standardization of data exchange file formats, and getting head around this domain in 2 days is really hard. We did not finish much on the practical side, but we examined the problem from technical side and came to deeper understanding of the problem domain and some ideas how it can be solved properly in future. One visible thing we made is &lt;a href=&quot;http://blog.ivanjovanovic.com/labs/chm/&quot;&gt;half-working prototype&lt;/a&gt; of Google Map with two custom tile layers, more like proof of concept for our idea.&lt;/p&gt;
 
