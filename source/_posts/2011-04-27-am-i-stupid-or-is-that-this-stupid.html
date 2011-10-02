@@ -12,7 +12,7 @@ meta:
 ---
 JavaScript development has got really much momentum and its popularity is peaking. In the moment of design it was probably never foreseen as such success. Maybe that is why we have to satisfy to using only its <a title="No affiliates ;)" href="http://www.amazon.com/exec/obidos/ASIN/0596517742/">"Good Parts"</a>. There are lot of compromises with it, in order to make programming it a success overall. One thing that I always found weird is usage of <strong>that = this</strong> concept. JavaScript guru <a title="The guy that is bravely hiding Chuck Norris on the picture" href="http://www.crockford.com/">Douglas Crockford</a> <a href="http://javascript.crockford.com/private.html">explains on his website</a> this concept of preserving connection of method with parent object regardless of the context of invocation. In practical usage I saw this pattern used for essentially the same reason but on other places. Consider this example (code purpose and quality in general do not matter that much)
 
-[code lang="javascript" highlight="4"]
+{% codeblock lang:js %}
 // Returns array of positions of current players on the field
 tofu.Table.prototype.getPlayerPositions = function() {
     var positions = [];
@@ -31,12 +31,12 @@ tofu.Table.prototype.getPlayerPositions = function() {
     });
     return positions;
 }
-[/code]
+{% endcodeblock %}
 
 The main point here is that we try to preserve reference to parent object with <strong>var that = this</strong> because $.each(this.rods, ... ) will overwrite reference to local variable <strong>this</strong>. In that case we access closure reference <strong>that</strong> to refer to our original object.
 
 And there is a problem, I keep seeing this pattern all around. As I understand programming, proper naming of "things" is very important. And one that calls everything around in the terms of <strong>this</strong> and <strong>that</strong> might not be considered much smart ;) Can't we have a name for <strong>that</strong> reference. Considering same example with small change in code I think it looks more natural than before and more readable and self explainable
-[code lang="javascript" highlight="4"]
+{% codeblock lang:js %}
 // Returns array of positions of current players on the field
 tofu.Table.prototype.getPlayerPositions = function() {
     var positions = [];
@@ -55,4 +55,6 @@ tofu.Table.prototype.getPlayerPositions = function() {
     });
     return positions;
 }
-[/code] 
+{% endcodeblock %}
+
+ 
