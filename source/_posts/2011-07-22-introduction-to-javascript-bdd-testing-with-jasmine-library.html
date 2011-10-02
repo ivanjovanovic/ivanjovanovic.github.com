@@ -26,18 +26,19 @@ Further, I will implement simple object that can register multiple callback func
 <h2>Example of simple JavaScript observer with Jasmine tests</h2>
 We start from the downloaded archive for standalone Jasmine library. We need to delete example code provided with the library to implement our own example.
 
-[bash]cd jasmine-standalone # folder in which we extracted downloaded archive
+{% codeblock lang:bash %}
 rm src/*
-rm spec/*[/bash]
+rm spec/*
+{% endcodeblock %}
 
-Also, from <code>SpecRunner.html</code> file we delete references to just removed scripts. Therefore, part which includes them stays empty like this:
+Also, from `SpecRunner.html` file we delete references to just removed scripts. Therefore, part which includes them stays empty like this:
 
 {% codeblock lang:js %}
 ...
 
-  &lt;!-- include source files here... --&gt;
+  <!-- include source files here... -->
 
-  &lt;!-- include spec files here... --&gt;
+  <!-- include spec files here... -->
 
 ...
 {% endcodeblock %}
@@ -47,9 +48,9 @@ In TDD and BDD philosophy one rule is essential for success.
 According to this we create file to place our tests in <code>spec/ObserverSpec.js</code> and we define first test to simply check existence of the observer object.
 
 {% codeblock lang.js %}
-describe(&quot;rs.ji.observer&quot;, function () {
+describe("rs.ji.observer" function () {
 
-    it(&quot;should be present in the global namespace&quot;, function () {
+    it("should be present in the global namespace", function () {
         expect(rs.ji.observer).toBeDefined();
     });
 
@@ -58,10 +59,10 @@ describe(&quot;rs.ji.observer&quot;, function () {
 
 And we add this specification to <code>SpecRunner.html</code> to execute it:
 
-[html]
-&lt;!-- include spec files here... --&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;spec/ObserverSpec.js&quot;&gt;&lt;/script&gt;
-[/html]
+{% codeblock lang:html %}
+<!-- include spec files here... -->
+<script type="text/javascript" src="spec/ObserverSpec.js"></script>
+{% endcodeblock %}
 
 If we now open <code>SpecRunner.html</code> in some browser (i.e. Google Chrome) we will see one failing test.
 
@@ -82,8 +83,8 @@ rs.ji.observer = {};
 And we will add it to <code>SpecRunner.html</code>:
 
 [html]
-&lt;!-- include source files here... --&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;src/observer.js&quot;&gt;&lt;/script&gt;
+<!-- include source files here... -->
+<script type="text/javascript" src="src/observer.js"></script>
 [/html]
 
 If we run <code>SpecRunner.html</code> again, we can see that our test passes, it is green :)
@@ -91,7 +92,7 @@ If we run <code>SpecRunner.html</code> again, we can see that our test passes,
 Now, when we know for the principle  <strong>"First failing test, then implementation"</strong> we can add new functionalities to our simple example. We add next test:
 
 {% codeblock lang:js %}
-    it(&quot;should be able to register callback function&quot;, function () {
+    it("should be able to register callback function", function () {
         // define function to be placed into the observer register
         function callback() { return null; }
         rs.ji.observer.register(callback);
@@ -123,7 +124,7 @@ We want to check if we can register multiple callbacks. This functionality shoul
         rs.ji.observer.callbacks = [];
     });
 
-    it(&quot;should be able to register multiple callbacks&quot;, function () {
+    it("should be able to register multiple callbacks", function () {
         function callback1() { return null; }
         function callback2() { return null; }
         rs.ji.observer.register(callback1);
@@ -142,16 +143,16 @@ If we run <code>SpecRunner.html</code> in browser, all tests should pass.
 Last thing our observer should do to satisfy its basic purpose is to update callback functions with some new information. That means it should be able to call them with some data. To define this functionality we write new test:
 
 {% codeblock lang:js %}
-    it(&quot;should provide update method to execute all callbacks with provided data&quot;, function () {
+    it("should provide update method to execute all callbacks", function () {
         window.callback1 = function () { return null; }
         window.callback2 = function () { return null; }
         spyOn(window, 'callback1');
         spyOn(window, 'callback2');
         rs.ji.observer.register(window.callback1);
         rs.ji.observer.register(window.callback2);
-        rs.ji.observer.update(&quot;data string&quot;);
-        expect(window.callback1).toHaveBeenCalledWith(&quot;data string&quot;);
-        expect(window.callback2).toHaveBeenCalledWith(&quot;data string&quot;);
+        rs.ji.observer.update("data string");
+        expect(window.callback1).toHaveBeenCalledWith("data string");
+        expect(window.callback2).toHaveBeenCalledWith("data string");
     });
 {% endcodeblock %}
 
@@ -159,11 +160,11 @@ Here we use some advanced techniques of <a title="Jasmine špijuniranje metoda"
 
 As a helper, we will add <a title="jQuery biblioteka" href="http://code.jquery.com/jquery-1.6.2.min.js">jQuery library</a> to <code>src/jquery.js</code> location and add it to <code>SpecRunner.html</code> file:
 
-[html highlight="2"]
-&lt;!-- include source files here... --&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;src/jquery.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;src/observer.js&quot;&gt;&lt;/script&gt;
-[/html]
+{%codeblock lang:html %}
+<!-- include source files here... -->
+<script type="text/javascript" src="src/jquery.js"></script>
+<script type="text/javascript" src="src/observer.js"></script>
+{% endcodeblock %}
 
 And we implement code to satisfy the test:
 
@@ -187,32 +188,33 @@ rs.ji.observer = {
     }
 };
 {% endcodeblock %}
-<h2>Complete picutre</h2>
+<h2>Complete picture</h2>
 That is it, now we have full implementation of simple observer with tests that can pretty clearly describe functionalities of the software we developed and they can as well prove in every time that needed functionalities are working OK by executing them in the browser (or different browsers to see if they will work in all of them).
 
 Complete files:
 
 {% codeblock lang:js %}
-describe(&quot;rs.ji.observer&quot;, function () {
+describe("rs.ji.observer", function () {
 
     beforeEach(function () {
         rs.ji.observer.callbacks = [];
     });
 
-    it(&quot;should be present in the global namespace&quot;, function () {
+    it("should be present in the global namespace", function () {
         expect(rs.ji.observer).toBeDefined();
     });
 
-    it(&quot;should be able to register callback function&quot;, function () {
+    it("should be able to register callback function", function () {
         // define anonymous function to be placed into the observer register
         function callback() { return null; }
         rs.ji.observer.register(callback);
         var callbacks = rs.ji.observer.getCallbacks();
         expect(callbacks.length).toBe(1);
-        expect(callbacks[0]).toBe(callback); // so we need to have first funtion in registered callbacks
+        // so we need to have first funtion in registered callbacks
+        expect(callbacks[0]).toBe(callback); 
     });
 
-    it(&quot;should be able to register multiple callbacks&quot;, function () {
+    it("should be able to register multiple callbacks", function () {
         function callback1() { return null; }
         function callback2() { return null; }
         rs.ji.observer.register(callback1);
@@ -223,19 +225,20 @@ describe(&quot;rs.ji.observer&quot;, function () {
         expect(callbacks[1]).toBe(callback2);
     });
 
-    it(&quot;should provide update method to execute all callbacks with provided data&quot;, function () {
+    it("should provide update method to execute all callbacks", function () {
         window.callback1 = function () { return null; }
         window.callback2 = function () { return null; }
         spyOn(window, 'callback1');
         spyOn(window, 'callback2');
         rs.ji.observer.register(window.callback1);
         rs.ji.observer.register(window.callback2);
-        rs.ji.observer.update(&quot;data string&quot;);
-        expect(window.callback1).toHaveBeenCalledWith(&quot;data string&quot;);
-        expect(window.callback2).toHaveBeenCalledWith(&quot;data string&quot;);
+        rs.ji.observer.update("data string");
+        expect(window.callback1).toHaveBeenCalledWith("data string");
+        expect(window.callback2).toHaveBeenCalledWith("data string");
     });
 });
 {% endcodeblock %}
+And the observer implementation
 {% codeblock lang:js %}
 // defining so called namespace objects so I can namespace observer into
 // rs.ji.observer
