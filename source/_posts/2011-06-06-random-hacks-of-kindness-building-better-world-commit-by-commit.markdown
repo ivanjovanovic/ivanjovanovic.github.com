@@ -1,0 +1,40 @@
+--- 
+layout: post
+title: Random Hacks of Kindness - building a better world commit by commit
+tags: 
+- community
+- engineering
+- rhok
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "1"
+  _oembed_90acdb17c4a0ac08fdc24b0ec9dea67d: <object width="500" height="400"><param name="movie" value="http://www.youtube.com/v/3y-afSoX_YA?version=3"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/3y-afSoX_YA?version=3" type="application/x-shockwave-flash" width="500" height="400" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+  dsq_thread_id: "374041929"
+---
+It was long time ago since I realized that every discussions about this or that technology falls into water without putting it in the context of the real-world problem. And, unfortunately, real world today doesn't lack problems. What it lacks are people of good will to solve them, or at least good people lack organization and coordination in order to efficiently solve these problems.
+<a href="http://www.rhok.org/about">Random Hacks of Kindness</a> project was started with idea to address this problem.
+<blockquote>RHoK works by bringing together experts in development and volunteers with a broad set of skills in software development and design to solve problems defined by NGOs and other institutions which work in the area of disaster management.</blockquote>
+Last weekend RHoK happend for the first time in Switzerland. <a href="http://wernerkrippendorf.blogspot.com/">Frank</a>, driven by his experience from RHoK #2 in Berlin, organized great event in Basel and gathered around 20 of us to attack some of the <a href="http://www.rhok.org/problems">RHoK problem definitions</a> we found interesting. On the following video you can see presentations of all the teams, their problem definitions and explanations of solutions.
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/3y-afSoX_YA" frameborder="0" allowfullscreen></iframe>
+
+I worked with <a href="http://www.rhok.org/users/mullinger">Max</a>, <a href="http://www.rhok.org/users/philipp">Phillip</a>, <a href="http://www.rhok.org/users/delixfe">Felix</a>, <a href="http://www.rhok.org/users/tomtomaso">Thomas</a> and Chad from <a href="http://www.secondmuse.com">SecondMuse</a> on the <a href="http://www.rhok.org/problems/hazards-map-field-use">problem defined by Caritas Switzerland</a>. Overall idea was to gather different sources of scientific GIS data for different global community risk related information like percentage of child hunger per country or intensity of cyclones in coastal areas and to present this information in usable way on one map with some tools to examine data more deep. Technically, the most difficult part of the problem is the fact that, as far I could understand, GIS area lacks standardization of data exchange file formats, and getting head around this domain in 2 days is really hard. We did not finish much on the practical side, but we examined the problem from technical side and came to deeper understanding of the problem domain and some ideas how it can be solved properly in future. One visible thing we made is <a href="http://blog.ivanjovanovic.com/labs/chm/">half-working prototype</a> of Google Map with two custom tile layers, more like proof of concept for our idea.
+
+<div class="image" style="width:580px;"><img class=" " title="Me, explaining our solution" src="http://farm3.static.flickr.com/2559/5801680178_e18be382ff_z.jpg" alt="" width="576" height="383" /></div>
+
+<a href="http://oleg.utou.ch/">Oleg</a>, who worked on the Person finder problem, gave <a title="Olegs overview of RHoK Basel" href="http://ol.posterous.com/random-hacks-of-kindness-basel">great overview of the whole RHoK Basel event on his blog</a>.
+
+Beside great time, meeting great people and working on challenging problem I found that participating to this event additionally boosted my motivation to get deeper into non-technical side of problems of communities around the world. Also I became more aware how important is to motivate people to put some effort into solving this kind of problems and how easy is to help if proper environment is set and some basic organization is provided.
+
+On the line of organization, I liked that we could give the input about how we could improve the event organization for future. I found couple of possible optimizations of the process which might help me achieve better results next time:
+<ul>
+	<li>As software developer I'm sensitive to quality of requirements. Problem definitions, as given today, are definitely not the best to work with. If we could <strong>involve engineers in the problem definition process</strong> before problem definition comes for implementation it might help to get more done during the short and intense 2 days of hacking. And even more important maybe is to <strong>have the problem owner present in place for all time during the event</strong>. This not only helps team but even more helps them to understand the problem better for future.</li>
+	<li>The way teams are formed is not the most efficient. Although, getting together with group of completely unfamiliar people is personally great and can lead to lot of innovation, it makes continuity a bit harder. Working with people you know and trust is from other side more efficient but can lead to not that innovative approaches. If these could be combined in a way I'm sure we could achieve better results and insure better continuity which is essential for finishing the project to some usable state. Therefore I'll try to make effort to<strong> form a team for next RHoK and try to stick to a problem until it is finished at least in the basic version</strong>.</li>
+	<li><strong>Event should be promoted to the broader audience</strong> and involve more different professions like <strong>designers, usability experts, product owners, scrum masters</strong> and other involved in agile software development which is I believe the most appropriate for this way of attacking problems.</li>
+	<li>In future whole RHoK idea should be expanded to <strong>involve problem areas other than disaster management</strong>. I would personally be the most interested in problems related to online education of countries in development, and others certainly have their own preferences as well. This way we might gather much bigger community around it.</li>
+</ul>
+<img class="  " title="RHoK #3 Basel participants" src="http://farm4.static.flickr.com/3475/5801145819_ee4b6a5841_z.jpg" alt="" width="576" height="383" />
+
+And of course, next time consider to join
