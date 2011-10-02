@@ -4,7 +4,7 @@
   <title>In search for the next abstraction</title>
   <link href="http://ivanjovanovic.com/atom.xml" rel="self"/>
   <link href="http://ivanjovanovic.com/"/>
-  <updated>2011-10-02T20:18:00+02:00</updated>
+  <updated>2011-10-02T20:18:23+02:00</updated>
   <id>http://ivanjovanovic.com/</id>
   <author>
     <name>Ivan Jovanovic</name>
@@ -672,7 +672,7 @@ Git is known for powerful branching possibilities. Although, it is hard to shuff
 &lt;span class=&#8217;line&#8217;&gt;6&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;c&quot;&gt;# Set up git branch information in command prompt&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;parse_git_branch&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;git branch 2&amp;gt; /dev/null | sed -e &lt;span class=&quot;s1&quot;&gt;&amp;#39;/^[^*]/d&amp;#39;&lt;/span&gt; -e &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/* \(.*\)/[\1]/&amp;#39;&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  git branch 2&amp;gt; /dev/null | sed -e &lt;span class=&quot;s1&quot;&gt;&amp;#39;/^[^*]/d&amp;#39;&lt;/span&gt; -e &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/* \(.*\)/[\1]/&amp;#39;&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;c&quot;&gt;# Example of use of the function in command prompt $(parse_git_branch)&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;nv&quot;&gt;PS1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;\w\$(parse_git_branch) $ &amp;quot;&lt;/span&gt;

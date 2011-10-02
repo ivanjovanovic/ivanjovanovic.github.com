@@ -123,7 +123,7 @@ Git is known for powerful branching possibilities. Although, it is hard to shuff
 <span class='line'>6</span>
 </pre></td><td class='code' width='100%'><pre><code class='bash'><div class='line'><span class="c"># Set up git branch information in command prompt</span>
 </div><div class='line'>parse_git_branch<span class="o">()</span> <span class="o">{</span>
-</div><div class='line'>git branch 2&gt; /dev/null | sed -e <span class="s1">&#39;/^[^*]/d&#39;</span> -e <span class="s1">&#39;s/* \(.*\)/[\1]/&#39;</span>
+</div><div class='line'>  git branch 2&gt; /dev/null | sed -e <span class="s1">&#39;/^[^*]/d&#39;</span> -e <span class="s1">&#39;s/* \(.*\)/[\1]/&#39;</span>
 </div><div class='line'><span class="o">}</span>
 </div><div class='line'><span class="c"># Example of use of the function in command prompt $(parse_git_branch)</span>
 </div><div class='line'><span class="nv">PS1</span><span class="o">=</span><span class="s2">&quot;\w\$(parse_git_branch) $ &quot;</span>
