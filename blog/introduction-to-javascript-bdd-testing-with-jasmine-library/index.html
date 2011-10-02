@@ -1,0 +1,500 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Introduction to JavaScript BDD testing with Jasmine library | Ivan Jovanovic</title>
+  <meta name="author" content="Ivan Jovanovic">
+  
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+  <!-- end CSS-->
+
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="/javascripts/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body id="post">
+
+  <div id="container">
+    <header>
+    <h1><a href="http://ivanjovanovic.github.com">Home</a></h1>
+</header>
+
+    <article>
+
+
+  <h1 class="article-title">Introduction to JavaScript BDD Testing With Jasmine Library</h1>
+  <div class="article-content">If we look at the developments in the software testing area, step beyond in evolution after <a title="Razvoj vođen testovima" href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a> is, so called, <a title="Razvoj softvera vođen ponašanjem" href="http://en.wikipedia.org/wiki/Behavior_Driven_Development">BDD</a> (Behavior Deriven Development). It is hard to describe BDD in couple of sentences. Excerpt taken from Wikipedia says:
+<blockquote>BDD focuses on obtaining a clear understanding of desired software behaviour through discussion with stakeholders. It extends <a title="Test-driven development" href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a> by writing test cases in a natural language that non-programmers can read. Behavior-driven developers use their native language to describe the purpose and benefit of their code. This allows the developers to focus on why the code should be created, rather than the technical details, and minimizes translation between the technical language in which the code is written and the domain language spoken by the business, users, stakeholders, project management, etc.</blockquote>
+If this looks a bit complicated, in one sentence it would mean: <strong>BDD helps programmers and non-technical stakeholders understand each other better and develop software which will be the most representative model of the problem solved by writing the software  itself. </strong>
+<h2>Jasmine: BDD for your JavaScript</h2>
+<a title="Jasmine: BDD za vaš JavaScript" href="http://pivotal.github.com/jasmine/">Jasmine</a> is a library for BDD testing of your JavaScript. It offers range of possibilities to describe software functionalities by simple and descriptive tests, which is one of the basic principles of BDD based development. This way tests usually serve as the most accurate software documentation. More about Jasmine library on the <a title="Jasmine na GitHub" href="https://github.com/pivotal/jasmine">GitHub repository</a>.
+
+After you download standalone Jasmine distribution from <a title="Nezavisna distribucija Jasmine biblioteke" href="http://pivotal.github.com/jasmine/download.html">here</a> you&#8217;ll find in the archive all you need to write your first tests together with the example of your code organization. The most important fie is <strong>SpecRunner.html</strong> which, when run in browser, will execute tests and give you report about the state of the tests. SpecRunner.html is very simple and self explanatory. <strong>lib</strong> folder contains Jasmine library, <strong>src</strong> folder contains code to be tested and  <strong>spec</strong> folder contains actual software specifications as tests.
+
+Further, I will implement simple object that can register multiple callback functions and call them with given data. Something like simple observer. I will always first write tests and then implement functionality to make tests pass.
+<h2>Example of simple JavaScript observer with Jasmine tests</h2>
+We start from the downloaded archive for standalone Jasmine library. We need to delete example code provided with the library to implement our own example.
+
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+</pre></td><td class='code' width='100%'><pre><code class='bash'><div class='line'>rm src/*
+</div><div class='line'>rm spec/*
+</div></code></pre></td></tr></table></div></figure>
+
+Also, from `SpecRunner.html` file we delete references to just removed scripts. Therefore, part which includes them stays empty like this:
+
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'><span class="p">...</span>
+</div><div class='line'>
+</div><div class='line'>  <span class="c">&lt;!--</span> <span class="nx">include</span> <span class="nx">source</span> <span class="nx">files</span> <span class="nx">here</span><span class="p">...</span> <span class="o">--&gt;</span>
+</div><div class='line'>
+</div><div class='line'>  <span class="c">&lt;!--</span> <span class="nx">include</span> <span class="nx">spec</span> <span class="nx">files</span> <span class="nx">here</span><span class="p">...</span> <span class="o">--&gt;</span>
+</div><div class='line'>
+</div><div class='line'><span class="p">...</span>
+</div></code></pre></td></tr></table></div></figure>
+<h3>First test</h3>
+In TDD and BDD philosophy one rule is essential for success.
+<blockquote>First you write the test which will at the beginning fail, then you implement code which should satisfy specification described by test. Then, you execute test and continue with implementation until test passes. When that happens you know that implementation is OK.</blockquote>
+According to this we create file to place our tests in <code>spec/ObserverSpec.js</code> and we define first test to simply check existence of the observer object.
+
+<figure role=code><figcaption><span>lang.js </span></figcaption>
+ <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;rs.ji.observer&quot;</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>
+</div><div class='line'>    <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;should be present in the global namespace&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
+</div><div class='line'>    <span class="p">});</span>
+</div><div class='line'>
+</div><div class='line'><span class="p">});</span>
+</div></code></pre></td></tr></table></div></figure>
+
+And we add this specification to <code>SpecRunner.html</code> to execute it:
+
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+</pre></td><td class='code' width='100%'><pre><code class='html'><div class='line'><span class="c">&lt;!-- include spec files here... --&gt;</span>
+</div><div class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;spec/ObserverSpec.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</div></code></pre></td></tr></table></div></figure>
+
+If we now open <code>SpecRunner.html</code> in some browser (i.e. Google Chrome) we will see one failing test.
+
+It is important to take a look in how our test looks like. If you read the test you&#8217;ll see how descriptive it is and how with simple words expresses how our code should behave, although example is very simple. Here it takes some creativity of the developer to make tests really valuable but more than that is important that developer have deep understanding of the dictionary and terminology of the domain for which software is developed because understanding of the domain should be heavily embedded in the test definitions.
+
+Next step is to implement the code which will satisfy test. We will create file <code>src/observer.js</code>
+
+<figure role=code><figcaption><span>lang.js </span></figcaption>
+ <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'><span class="c1">// defining so called namespace objects so I can namespace observer into</span>
+</div><div class='line'><span class="c1">// rs.ji.observer</span>
+</div><div class='line'><span class="kd">var</span> <span class="nx">rs</span> <span class="o">=</span> <span class="p">{};</span>
+</div><div class='line'><span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span> <span class="o">=</span> <span class="p">{};</span>
+</div><div class='line'>
+</div><div class='line'><span class="c1">// observer implementation</span>
+</div><div class='line'><span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span> <span class="o">=</span> <span class="p">{};</span>
+</div></code></pre></td></tr></table></div></figure>
+
+And we will add it to <code>SpecRunner.html</code>:
+
+[html]
+<!-- include source files here... -->
+<script type="text/javascript" src="src/observer.js"></script>
+[/html]
+
+If we run <code>SpecRunner.html</code> again, we can see that our test passes, it is green :)
+<h3>Rest of implementation</h3>
+Now, when we know for the principle  <strong>&#8220;First failing test, then implementation&#8221;</strong> we can add new functionalities to our simple example. We add next test:
+
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'>    <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;should be able to register callback function&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="c1">// define function to be placed into the observer register</span>
+</div><div class='line'>        <span class="kd">function</span> <span class="nx">callback</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span> <span class="p">}</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
+</div><div class='line'>        <span class="kd">var</span> <span class="nx">callbacks</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">getCallbacks</span><span class="p">();</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
+</div><div class='line'>    <span class="p">});</span>
+</div></code></pre></td></tr></table></div></figure>
+
+And implementation that makes this test pass:
+
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+<span class='line'>9</span>
+</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'><span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span> <span class="o">=</span> <span class="p">{</span>
+</div><div class='line'>    <span class="nx">callbacks</span><span class="o">:</span> <span class="p">[],</span>
+</div><div class='line'>    <span class="nx">register</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+</div><div class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
+</div><div class='line'>    <span class="p">},</span>
+</div><div class='line'>    <span class="nx">getCallbacks</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">;</span>
+</div><div class='line'>    <span class="p">}</span>
+</div><div class='line'><span class="p">};</span>
+</div></code></pre></td></tr></table></div></figure>
+
+We want to check if we can register multiple callbacks. This functionality should be supported already, but we write test to confirm this:
+
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+<span class='line'>9</span>
+<span class='line'>10</span>
+<span class='line'>11</span>
+<span class='line'>12</span>
+<span class='line'>13</span>
+<span class='line'>14</span>
+<span class='line'>15</span>
+</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'>    <span class="c1">// before every test we reset array of callbacks</span>
+</div><div class='line'>    <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">callbacks</span> <span class="o">=</span> <span class="p">[];</span>
+</div><div class='line'>    <span class="p">});</span>
+</div><div class='line'>
+</div><div class='line'>    <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;should be able to register multiple callbacks&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="kd">function</span> <span class="nx">callback1</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span> <span class="p">}</span>
+</div><div class='line'>        <span class="kd">function</span> <span class="nx">callback2</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span> <span class="p">}</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">callback1</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">callback2</span><span class="p">);</span>
+</div><div class='line'>        <span class="kd">var</span> <span class="nx">callbacks</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">getCallbacks</span><span class="p">();</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">callback1</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">callback2</span><span class="p">);</span>
+</div><div class='line'>    <span class="p">});</span>
+</div></code></pre></td></tr></table></div></figure>
+
+Programmers often use <code>print, echo</code> and friends to test code for certain functionalities. That takes time as for writing a test, but from other side tests are possible to be executed all the time after this initial check is done even when we move to implement something else.
+
+If we run <code>SpecRunner.html</code> in browser, all tests should pass.
+
+Last thing our observer should do to satisfy its basic purpose is to update callback functions with some new information. That means it should be able to call them with some data. To define this functionality we write new test:
+
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+<span class='line'>9</span>
+<span class='line'>10</span>
+<span class='line'>11</span>
+</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'>    <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;should provide update method to execute all callbacks&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">callback1</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span> <span class="p">}</span>
+</div><div class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">callback2</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span> <span class="p">}</span>
+</div><div class='line'>        <span class="nx">spyOn</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">&#39;callback1&#39;</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">spyOn</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">&#39;callback2&#39;</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">callback1</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">callback2</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">&quot;data string&quot;</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">callback1</span><span class="p">).</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="s2">&quot;data string&quot;</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">callback2</span><span class="p">).</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="s2">&quot;data string&quot;</span><span class="p">);</span>
+</div><div class='line'>    <span class="p">});</span>
+</div></code></pre></td></tr></table></div></figure>
+
+Here we use some advanced techniques of <a title="Jasmine špijuniranje metoda" href="https://github.com/pivotal/jasmine/wiki/Spies">spying on methods</a> (SpyOn) in order to see if some method is called while other is executed.
+
+As a helper, we will add <a title="jQuery biblioteka" href="http://code.jquery.com/jquery-1.6.2.min.js">jQuery library</a> to <code>src/jquery.js</code> location and add it to <code>SpecRunner.html</code> file:
+
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+</pre></td><td class='code' width='100%'><pre><code class='html'><div class='line'><span class="c">&lt;!-- include source files here... --&gt;</span>
+</div><div class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;src/jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</div><div class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;src/observer.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</div></code></pre></td></tr></table></div></figure>
+
+And we implement code to satisfy the test:
+
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+<span class='line'>9</span>
+<span class='line'>10</span>
+<span class='line'>11</span>
+<span class='line'>12</span>
+<span class='line'>13</span>
+<span class='line'>14</span>
+<span class='line'>15</span>
+<span class='line'>16</span>
+<span class='line'>17</span>
+<span class='line'>18</span>
+</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'><span class="c1">// observer implementation</span>
+</div><div class='line'><span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span> <span class="o">=</span> <span class="p">{</span>
+</div><div class='line'>    <span class="nx">callbacks</span><span class="o">:</span> <span class="p">[],</span>
+</div><div class='line'>    <span class="nx">register</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+</div><div class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
+</div><div class='line'>    <span class="p">},</span>
+</div><div class='line'>    <span class="nx">getCallbacks</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">;</span>
+</div><div class='line'>    <span class="p">},</span>
+</div><div class='line'>
+</div><div class='line'>    <span class="c1">// added update method to inform registered callbacks</span>
+</div><div class='line'>    <span class="c1">// uses jQuery to iterate over the array</span>
+</div><div class='line'>    <span class="nx">update</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</div><div class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+</div><div class='line'>            <span class="nx">callback</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span> <span class="c1">// call every callback with provided data</span>
+</div><div class='line'>        <span class="p">});</span>
+</div><div class='line'>    <span class="p">}</span>
+</div><div class='line'><span class="p">};</span>
+</div></code></pre></td></tr></table></div></figure>
+<h2>Complete picture</h2>
+That is it, now we have full implementation of simple observer with tests that can pretty clearly describe functionalities of the software we developed and they can as well prove in every time that needed functionalities are working OK by executing them in the browser (or different browsers to see if they will work in all of them).
+
+Complete files:
+
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+<span class='line'>9</span>
+<span class='line'>10</span>
+<span class='line'>11</span>
+<span class='line'>12</span>
+<span class='line'>13</span>
+<span class='line'>14</span>
+<span class='line'>15</span>
+<span class='line'>16</span>
+<span class='line'>17</span>
+<span class='line'>18</span>
+<span class='line'>19</span>
+<span class='line'>20</span>
+<span class='line'>21</span>
+<span class='line'>22</span>
+<span class='line'>23</span>
+<span class='line'>24</span>
+<span class='line'>25</span>
+<span class='line'>26</span>
+<span class='line'>27</span>
+<span class='line'>28</span>
+<span class='line'>29</span>
+<span class='line'>30</span>
+<span class='line'>31</span>
+<span class='line'>32</span>
+<span class='line'>33</span>
+<span class='line'>34</span>
+<span class='line'>35</span>
+<span class='line'>36</span>
+<span class='line'>37</span>
+<span class='line'>38</span>
+<span class='line'>39</span>
+<span class='line'>40</span>
+<span class='line'>41</span>
+<span class='line'>42</span>
+<span class='line'>43</span>
+</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;rs.ji.observer&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>
+</div><div class='line'>    <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">callbacks</span> <span class="o">=</span> <span class="p">[];</span>
+</div><div class='line'>    <span class="p">});</span>
+</div><div class='line'>
+</div><div class='line'>    <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;should be present in the global namespace&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
+</div><div class='line'>    <span class="p">});</span>
+</div><div class='line'>
+</div><div class='line'>    <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;should be able to register callback function&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="c1">// define anonymous function to be placed into the observer register</span>
+</div><div class='line'>        <span class="kd">function</span> <span class="nx">callback</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span> <span class="p">}</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
+</div><div class='line'>        <span class="kd">var</span> <span class="nx">callbacks</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">getCallbacks</span><span class="p">();</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</div><div class='line'>        <span class="c1">// so we need to have first funtion in registered callbacks</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
+</div><div class='line'>    <span class="p">});</span>
+</div><div class='line'>
+</div><div class='line'>    <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;should be able to register multiple callbacks&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="kd">function</span> <span class="nx">callback1</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span> <span class="p">}</span>
+</div><div class='line'>        <span class="kd">function</span> <span class="nx">callback2</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span> <span class="p">}</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">callback1</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">callback2</span><span class="p">);</span>
+</div><div class='line'>        <span class="kd">var</span> <span class="nx">callbacks</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">getCallbacks</span><span class="p">();</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">callback1</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">callback2</span><span class="p">);</span>
+</div><div class='line'>    <span class="p">});</span>
+</div><div class='line'>
+</div><div class='line'>    <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;should provide update method to execute all callbacks&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">callback1</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span> <span class="p">}</span>
+</div><div class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">callback2</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span> <span class="p">}</span>
+</div><div class='line'>        <span class="nx">spyOn</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">&#39;callback1&#39;</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">spyOn</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">&#39;callback2&#39;</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">callback1</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">callback2</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">&quot;data string&quot;</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">callback1</span><span class="p">).</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="s2">&quot;data string&quot;</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">callback2</span><span class="p">).</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="s2">&quot;data string&quot;</span><span class="p">);</span>
+</div><div class='line'>    <span class="p">});</span>
+</div><div class='line'><span class="p">});</span>
+</div></code></pre></td></tr></table></div></figure>
+And the observer implementation
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+<span class='line'>9</span>
+<span class='line'>10</span>
+<span class='line'>11</span>
+<span class='line'>12</span>
+<span class='line'>13</span>
+<span class='line'>14</span>
+<span class='line'>15</span>
+<span class='line'>16</span>
+<span class='line'>17</span>
+<span class='line'>18</span>
+<span class='line'>19</span>
+<span class='line'>20</span>
+<span class='line'>21</span>
+</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'><span class="c1">// defining so called namespace objects so I can namespace observer into</span>
+</div><div class='line'><span class="c1">// rs.ji.observer</span>
+</div><div class='line'><span class="kd">var</span> <span class="nx">rs</span> <span class="o">=</span> <span class="p">{};</span>
+</div><div class='line'><span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span> <span class="o">=</span> <span class="p">{};</span>
+</div><div class='line'>
+</div><div class='line'><span class="c1">// observer implementation</span>
+</div><div class='line'><span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span> <span class="o">=</span> <span class="p">{</span>
+</div><div class='line'>    <span class="nx">callbacks</span><span class="o">:</span> <span class="p">[],</span>
+</div><div class='line'>    <span class="nx">register</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+</div><div class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
+</div><div class='line'>    <span class="p">},</span>
+</div><div class='line'>    <span class="nx">getCallbacks</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">;</span>
+</div><div class='line'>    <span class="p">},</span>
+</div><div class='line'>    <span class="nx">update</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</div><div class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+</div><div class='line'>            <span class="nx">callback</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+</div><div class='line'>        <span class="p">});</span>
+</div><div class='line'>    <span class="p">}</span>
+</div><div class='line'>
+</div><div class='line'><span class="p">};</span>
+</div></code></pre></td></tr></table></div></figure> 
+</div>
+  <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ivanjovanovic.github.com/blog/introduction-to-javascript-bdd-testing-with-jasmine-library" data-via="ivanjovanovic" data-counturl="http://ivanjovanovic.github.com/blog/introduction-to-javascript-bdd-testing-with-jasmine-library" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+
+</article>
+
+
+        <footer>
+
+    </footer>
+
+  </div>
+
+    <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="/javascripts/app.js"></script>
+  <!-- end scripts-->
+
+	
+  <script>
+    window._gaq = [['_setAccount','UA-800972-6'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    });
+  </script>
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+ 
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+</body>
+</html>
+

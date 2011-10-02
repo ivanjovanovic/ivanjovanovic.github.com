@@ -1,0 +1,125 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Webtuesday at local.ch offices | Ivan Jovanovic</title>
+  <meta name="author" content="Ivan Jovanovic">
+  
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+  <!-- end CSS-->
+
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="/javascripts/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body id="post">
+
+  <div id="container">
+    <header>
+    <h1><a href="http://ivanjovanovic.github.com">Home</a></h1>
+</header>
+
+    <article>
+
+
+  <h1 class="article-title">Webtuesday at local.ch Offices</h1>
+  <div class="article-content">Every first Tuesday of a month, Zürich oriented web community gather for an evening of tech talks and some beer for, so called, <a title="Webtuesday web site" href="http://webtuesday.ch/">webtuesday</a>. Yesterday, we had pleasure to host event at  <a title="Local.ch web site" href="http://local.ch/">local.ch</a> for the first time as unofficial opening for the community after movement to <a title="Local.ch address" href="http://yellow.local.ch/en/d/Zuerich/8001/Internet/local.ch-ag-jXdlhL7d_gnuD1d-TjoTTw?what=local.ch">new offices</a>. As Harry <a title="Harry's twitter status" href="http://twitter.com/hfuecks/status/12115799946">tweeted</a> already during the event, it was pretty packed. I was personally happy to see lot of people coming since this was only my second webtuesday since I started working for local.ch 6 months ago.
+
+<div class="image" style="width:350px;">
+  <a href="http://twitter.com/hfuecks/status/12115799946"><img title="Packed webtuestad @localch offices" src="http://a.yfrog.com/img707/5599/4lmg.jpg" alt="Packed Webtuesday @localch offices" width="336" height="252" /></a>
+Packed webtuesday @localch offices (by Harry Fuecks)</div>
+
+This time <a title="Patrice's blog" href="http://weblog.patrice.ch/">Patrice</a> and Chris from <a title="Memonic" href="http://memonic.com">memonic.com</a> gave great talk on the current state of the architecture and tools that are behind their startup. Since both of them worked for local.ch before (Patrice as Lead of Frontend Development, Chris as backend Java developer)  it was interesting to see how much they kept and where they improved along the way.
+
+Interesting point was the choice of the language for their startup. At local.ch, we are kind of separated on frontend and backend development, before all, by the languages we use. Shortly, PHP on the frontend and Java in backend with HTTP communication in between, XML result got from backend parsed by XSL to produce HTML. At Memonic they decided to bring that together and make gap between backend and frontend development smaller by choosing Python as common language. Having experience with the Scrum and challenges which this kind of separation between frontend and backend carries, I see this as reasonable decision. I was surprised to hear that none of them had professional experience with Python before founding Memonic.
+
+Their architecture is highly web service oriented. The way Patrice conceptually sees the architecture can be paraphrased like this:
+<blockquote>&#8220;I see web services in our architecture as classes are used traditionally, or maybe better, as components of the traditional framework&#8221;</blockquote>
+end of lousy paraphrase :). So, if we take Zend Framework for example: imagine that instead of having Zend_Auth, Zend_Session, Zend_Log, Zend_Mail &#8230; and sending messages to their objects, you have web services that expose interfaces over HTTP. On the <a title="Memonic blog post" href="http://blog.memonic.com/archive/2010/04/14/webtuesday-memonic-architecture.html">slides Patrice provided</a> can be seen in smaller detail way their architecture is broken into smallest possible web services that communicate among each other. Web services are based on <a title="wsgiservice on GitHub" href="http://github.com/pneff/wsgiservice">wsgiservice</a> (Python WSGI framework to create REST web service) library that is open sourced by Patrice. One thing I was interested is what is the performance loss in HTTP communication overhead between components. In current state of the load they do not see it as problem and they see using HTTP features as e.g. caching more valuable than performance loss introduced.
+
+Here are some links, if you are more interested to find out about <a title="Local.ch - official website" href="http://www.local.ch/en/s/aboutus/facts_and_figures">local.ch</a>, <a title="Webtuesday website" href="http://webtuesday.ch">webtuesday</a> or <a title="Keep the essential, memonic.com website" href="http://memonic.com/">memonic.com</a>.
+</div>
+  <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ivanjovanovic.github.com/blog/webtuesday-at-local-ch-offices" data-via="ivanjovanovic" data-counturl="http://ivanjovanovic.github.com/blog/webtuesday-at-local-ch-offices" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+
+</article>
+
+
+        <footer>
+
+    </footer>
+
+  </div>
+
+    <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="/javascripts/app.js"></script>
+  <!-- end scripts-->
+
+	
+  <script>
+    window._gaq = [['_setAccount','UA-800972-6'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    });
+  </script>
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+ 
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+</body>
+</html>
+

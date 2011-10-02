@@ -1,0 +1,191 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Getting around first steps with Git | Ivan Jovanovic</title>
+  <meta name="author" content="Ivan Jovanovic">
+  
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+  <!-- end CSS-->
+
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="/javascripts/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body id="post">
+
+  <div id="container">
+    <header>
+    <h1><a href="http://ivanjovanovic.github.com">Home</a></h1>
+</header>
+
+    <article>
+
+
+  <h1 class="article-title">Getting Around First Steps With Git</h1>
+  <div class="article-content">So, your pain threshold limits are exhausted by everyday use of your current version control software (SVN, CVS anyone?). You are looking for another solution to version control problems and you start exploring <a href="http://git-scm.com/">Git</a>. You heard that it is really cool, but now you&#8217;re getting hands on to figure out how cool it really is.
+
+For start, you should know that <a title="Git basics" href="http://progit.org/book/ch1-3.html">Git is different</a>. Your current mindset will drive you into using it the same way you used SVN, but very soon you&#8217;ll find out that if you don&#8217;t start working on your mindset, using Git can become more a problem than a solution. Fortunately, <a href="http://progit.org/book/">Pro Git book</a> is available online for free and I highly recommend going through it with understanding.<!--more-->
+
+If there is a list of things to understand and clarify at start that I would recommend:
+<ul>
+	<li><a href="http://progit.org/book/ch2-0.html">Git basics</a></li>
+	<li>track -&gt; edit -&gt; stage -&gt; commit -&gt; push file lifecycle</li>
+	<li><a href="http://stackoverflow.com/questions/292357/whats-the-difference-between-git-pull-and-git-fetch">fetching vs pulling</a> changes from remote origin</li>
+	<li>every Git repository of a project <a href="http://progit.org/book/ch3-5.html">represents part of one common history</a>, your local branches are just one part of it, remote origin as well and repositories of your colleagues too.</li>
+	<li><a href="http://progit.org/book/ch3-0.html">working with branches</a> properly and efficiently</li>
+	<li><a href="http://progit.org/book/ch7-1.html">managing configuration</a> of your local repository and global Git configuration</li>
+</ul>
+I&#8217;m new to Git and I had some basic questions to answer for myself, and afterwards I saw others asking again the same things. If I would take a couple of them to answer that would be these.
+<h3>Git autocompletion</h3>
+Great tool to explore and learn Git commands during your everyday work. It is easy to set up and invaluable to have it.
+
+First download the git-completion.bash file
+
+[code lang=&#8221;bash&#8221;]cd # to go to your home folder
+curl https://github.com/git/git/raw/master/contrib/completion/git-completion.bash -O[/code]
+
+and then add this line to your ~/.bash_profile or however you name your profile file
+
+[code lang=&#8221;bash&#8221;]source ~/git-completion.bash[/code]
+<h3>Checking out remote branch</h3>
+Someone pushed new branch to remote repository and you are having tough time to start working on it. Use
+
+[code lang=&#8221;bash&#8221;]git fetch[/code]
+
+this will fetch all remote branches and put them in local repository
+
+[code lang=&#8221;bash&#8221;]git checkout -b local-branch-name origin/remote-branch-name[/code]
+
+will check out branch and set tracking between local and remote branch properly for you.
+<h3>Pushing and pulling only to and from current branch</h3>
+After you have finished your work on a branch, you want to push your changes. But git push command by default pushes changes from all branches if no other parameters are given. It can be configured in general to push only current branch with
+
+[code lang=&#8221;bash&#8221;]git config push.default current[/code]
+
+Regarding puling is a bit more complicated, since this is the option to be set for each branch. Probably it can be generalized. For example, you can have  a remote branch called funky-branch which is on the origin remote repository and local branch with same name funky-branch. Then we can pull only its changes if we set following config options for this local branch
+
+[code lang=&#8221;bash&#8221;]git config branch.funky-branch.remote origin
+git config branch.funky-branch.merge refs/heads/funky-branch[/code]
+
+now git pull works without pulling other branches along the way.
+
+There are of course numerous more questions to answer regarding Git, but when you touch the ground with your own feet, you&#8217;ll get to answer them really quickly since it has a <a href="http://git-scm.com/documentation">great documentation</a> and an active community.
+
+Git is extremely powerful and incredibly fast tool which enables us to make some really complicated development scenarios easy to manage. On the other hand it can often look like a kind of magic since there is a bit more to understand of it comparing to centralized version control solutions. One thing that is obvious after some weeks of everyday usage of Git is that it fits really good to the way my mind works during development. If you still have doubts, give it a try, it might even help :)
+<h3>Making current git branch visible in your command prompt</h3>
+Git is known for powerful branching possibilities. Although, it is hard to shuffle between branches and to always know in which you are currently. There is simple solution to this. You can add name of current branch to your command prompt by adding this to your shell profile script.
+
+[code lang=&#8221;bash&#8221;]
+# Set up git branch information in command prompt
+parse_git_branch() {
+git branch 2&gt; /dev/null | sed -e &#8216;/^[^*]/d&#8217; -e &#8216;s/* \(.*\)/[\1]/&#8217;
+}
+# Example of use of the function in command prompt $(parse_git_branch)
+PS1=&quot;\w\$(parse_git_branch) $ &quot;
+[/code]
+
+After resourcing your shell profile you&#8217;ll see current checkout branch name in command prompt whenever you enter git workspace folder.
+<h3>Selecting only part of a change for commit</h3>
+Usually changes we make are not perfectly clean, or currently changed files contain at least two unrelated changes. Git provides the way to select only a part of all the changes and stage them for commit. It is done by using:
+
+[code lang=&#8221;bash&#8221;]git app -p[/code]
+
+Then you would have a change to decide on every group of lines weather to include it or not, you can even split it to parts so you can select more granular way &#8230;
+<h3>Cleaning up repository with garbage collection</h3>
+Git doesn&#8217;t do garbage collection on the repositories by default which has couple of advantages. Commands don&#8217;t lose time to prune objects all the time and you have kind of history to refer to locally. But, over time it gets slower, which can be fixed with activating garbage collection.
+
+[code language=&#8221;javascript&#8221;]
+git gc &#8211;prune
+// or check `man git-gc` for more information about git garbage collection
+[/code]
+&nbsp;
+<h3>Getting up to more speed</h3>
+<a title="Six Revisions Git resources" href="http://sixrevisions.com/resources/git-tutorials-beginners/">Here</a> you can find extensive list of resources for learning Git with selection of top 10 sites that provide the best resources online.
+
+After you have finished the basics you can proceed with more advanced topics. This <a href="http://nuclearsquid.com/writings/git-tricks-tips-workflows.html">great post from Markus Prinz </a> can help you with optimizing Git for more advanced and more personalized workflows.
+</div>
+  <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ivanjovanovic.github.com/blog/getting-around-first-steps-with-git" data-via="ivanjovanovic" data-counturl="http://ivanjovanovic.github.com/blog/getting-around-first-steps-with-git" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+
+</article>
+
+
+        <footer>
+
+    </footer>
+
+  </div>
+
+    <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="/javascripts/app.js"></script>
+  <!-- end scripts-->
+
+	
+  <script>
+    window._gaq = [['_setAccount','UA-800972-6'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    });
+  </script>
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+ 
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+</body>
+</html>
+
