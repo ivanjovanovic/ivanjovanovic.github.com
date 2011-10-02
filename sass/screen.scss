@@ -20,6 +20,14 @@ body {
   #personal {
     margin-bottom: 50px;
     margin-top: 50px;
+
+    ul {
+      list-style-type: none;
+      
+      li {
+        margin: 10px 0;
+      }
+    }
   }
 
   .social {
