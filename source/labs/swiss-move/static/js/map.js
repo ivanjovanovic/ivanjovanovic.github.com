@@ -15,7 +15,7 @@ var vizualizer = (function(){
             query: {
                 select: 'geometry_from',
                 from: '1707291',
-                where: "to = '8052'"
+                where: "from = " + zip
             },
             clickable: false,
             map: map
