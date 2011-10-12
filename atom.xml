@@ -4,13 +4,95 @@
   <title>In search for the next abstraction</title>
   <link href="http://ivanjovanovic.com/atom.xml" rel="self"/>
   <link href="http://ivanjovanovic.com/"/>
-  <updated>2011-10-03T21:01:55+02:00</updated>
+  <updated>2011-10-13T00:42:05+02:00</updated>
   <id>http://ivanjovanovic.com/</id>
   <author>
     <name>Ivan Jovanovic</name>
     
   </author>
 
+  
+  <entry>
+    <title>Random Hacks of Kindess come to Zürich</title>
+    <link href="http://ivanjovanovic.com/2011/10/12/random-hacks-of-kindess-come-to-zurich"/>
+    <updated>2011-10-12T22:39:00+02:00</updated>
+    <id>http://ivanjovanovic.com/2011/10/12/random-hacks-of-kindess-come-to-zurich</id>
+    <content type="html">&lt;p&gt;After great weekend I spent during &lt;a href=&quot;http://www.rhok.org/event/basel&quot;&gt;RHoK #3 in Basel&lt;/a&gt;
+I decided to join the RHoK Switzerland organization and help making next event
+in Zürich even more awesome.&lt;/p&gt;
+
+&lt;p&gt;Last Tuesday, I had a pleasure to present next &lt;a href=&quot;http://www.rhok.org&quot;&gt;Random Hacks of
+Kindness&lt;/a&gt; event in front of the Zürich
+&lt;a href=&quot;http://webtuesday.ch/&quot;&gt;Webtuesday&lt;/a&gt; community and here I wanted to share
+slides from that presentation with a bit of context.&lt;/p&gt;
+
+&lt;h2&gt;TL;DR for the impatient&lt;/h2&gt;
+
+&lt;p&gt;RHoK #4 is going to happen in Zürich on 3rd and 4th
+of December 2011. You should join because it is never bad time to invest
+your time and expertise for the good cause. You can join by registering
+through &lt;a href=&quot;http://www.rhok.org/event/zurich-switzerland&quot;&gt;Eventbrite form&lt;/a&gt;
+on the official event page. You can see more details about the RHoK
+commnity on the &lt;a href=&quot;http://www.rhok.org&quot;&gt;official web site&lt;/a&gt;. For following
+up with new information follow &lt;a href=&quot;http://twitter.com/#!/rhokch&quot;&gt;@rhokch&lt;/a&gt; on Twitter&lt;/p&gt;
+
+&lt;div style=&quot;width:425px; margin-left:150px;&quot; id=&quot;__ss_9664033&quot;&gt; &lt;strong style=&quot;display:block;margin:12px 0 4px&quot;&gt;&lt;a href=&quot;http://www.slideshare.net/ivan.jovanovic/rhok-presentation-zurich-webtuesday&quot; title=&quot;RHoK presentation Zurich webtuesday&quot; target=&quot;_blank&quot;&gt;RHoK presentation Zurich webtuesday&lt;/a&gt;&lt;/strong&gt; &lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/9664033&quot; width=&quot;425&quot; height=&quot;355&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt; &lt;div style=&quot;padding:5px 0 12px&quot;&gt; View more &lt;a href=&quot;http://www.slideshare.net/&quot; target=&quot;_blank&quot;&gt;presentations&lt;/a&gt; from &lt;a href=&quot;http://www.slideshare.net/ivan.jovanovic&quot; target=&quot;_blank&quot;&gt;ivan.jovanovic&lt;/a&gt; &lt;/div&gt; &lt;/div&gt;
+
+&lt;h2&gt;So, what makes RHoK different&lt;/h2&gt;
+
+&lt;p&gt;Comparing to other hackaton based activities that I noticed, RHoK stands
+out with the systematic orientation towards permanent and sustainable
+impact over longer future. It is obvious to see that for a weekend of
+hacking big problems can&amp;#8217;t be solved. Knowing that RHoK tends to attack
+this problem particularly by building strong relation to organizations
+and individuals that are closest to the problems being solved. In Basel, for example,
+we had on site representatives from &lt;a href=&quot;http://www.caritas.ch&quot;&gt;Caritas Switzerland&lt;/a&gt; and
+&lt;a href=&quot;http://www.humanityroad.org/&quot;&gt;Humanity Road&lt;/a&gt;. This way, from one side
+RHoK helps Subject Matter Experts (as we call them) be strong problem
+owners and drivers for the change, and from the other side RHoK brings
+needed knowledge to attack these problems with high quality.&lt;/p&gt;
+
+&lt;p&gt;Of course, you can bring your own idea to the event and try to motivate
+others to join you bringing it to life or you can just hack on it
+yourself. Only constrait is that at the end of the weekend you&amp;#8217;ll have
+to present what you did and explaing why it matters to be solved.&lt;/p&gt;
+
+&lt;h2&gt;Bringing needed knowledge to the problem&lt;/h2&gt;
+
+&lt;p&gt;The way hackatons usually happen is around focused communities. For
+example, Ruby/RoR community meets once a month and hacks on things they
+are interested in, usually not oriented towards the humanity related
+problems. Although this is great, this approach lacks some pieces in
+order to sustainably solve big real world problems. RHoK as a concept
+tries to bring ALL the knowledge needed not only the technical one. That
+is why we try to motivate product owners, designers, user interaction
+experts, thinkers or activists of any other kind to participate in
+various parts of the process as a part of the team attacking particular
+problem. This way we think we can make teams last longer than a weekend
+and drive the solution to the state when it is being used in production.&lt;/p&gt;
+
+&lt;h2&gt;RHoK #4 Zürich, 3rd and 4th of December 2011&lt;/h2&gt;
+
+&lt;p&gt;What we provide is a venue, infrastructure, food and refreshements. At
+the beginning of the event we&amp;#8217;ll get an overview of the problems that we
+might attack during the weekend. All the problems are placed on the
+official &lt;a href=&quot;http://www.rhok.org/problems&quot;&gt;RHoK website&lt;/a&gt; in the problems section.
+For some of the problems we&amp;#8217;ll have on-site representatives, for some of
+them you might want to pair up with a team from another &lt;a href=&quot;http://www.rhok.org/events&quot;&gt;RHoK event from
+the list&lt;/a&gt; or you might bring your own
+problem and attack it alone or with other participants that decide to
+join you.&lt;/p&gt;
+
+&lt;h2&gt;Stay up to date with new information about the event&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Official &lt;a href=&quot;http://www.rhok.org&quot;&gt;Random Hacks of Kindness website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;RHoK Switzerland Twitter account &lt;a href=&quot;http://twitter.com/#!/rhokch&quot;&gt;@rhokch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;RHoK Zürich event page - http://www.rhok.org/event/zurich-switzerland&lt;/li&gt;
+&lt;li&gt;Contact us directly &lt;a href=&quot;https://twitter.com/#!/ivanjovanovic&quot;&gt;@ivanjovanovic&lt;/a&gt; or &lt;a href=&quot;https://twitter.com/#!/thesuperlogical&quot;&gt;@thesuperlogical&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   
   <entry>
     <title>There&#8217;s an RFC for That</title>
