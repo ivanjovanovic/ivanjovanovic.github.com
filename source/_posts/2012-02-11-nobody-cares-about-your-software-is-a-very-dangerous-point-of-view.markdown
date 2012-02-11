@@ -6,14 +6,15 @@ comments: true
 categories: 
 ---
 
-I work for company that is building its own software for the purpose of
+I work for the company that is building its own software for the purpose of
 bringing some value to its users. So, we don't sell software but we sell
 what software does.
 
 I noticed that people are regularly throwing overgeneralizations and
-telling that bringing value is the only important thing, neglecting that
-having your own software platform is the way you communicate that value
-to your users. By making decisions on the platform you are inducing
+telling that bringing value is the only important thing. At the end that
+is not false. What is usually missing is understanding how quality of
+software that is meant to bring value affects the process of producing
+the value. By making decisions about the software platform you are inducing
 heavily the ways you convey the value. You are enabling yourself to
 communicate some messages but from the other side you are restricting
 yourself for the others. Most probably lot of technical decisions on the
@@ -97,7 +98,7 @@ care about our software, what should others in the process than do.
 
 Well, in my opinion that is what building business that is relying on
 a software product to deliver some user value is all about. **Others
-should care that user can fulfil his goal by using software and not
+should care that user can fulfill his goal by using software and not
 caring about software itself.** In fact what user is paying us for is to
 care about the things he doesn't want to care. Unfortunatelly, when user
 starts to feel that software is getting into his way, lack of care for
@@ -134,7 +135,12 @@ aware of the environment in which we operate, company strategy and short
 and long terms goals ... and lots of other things.
 
 Goal of listing all of these responsibilities is not to make proper or 
-correct list but to give a glimpse at the fact that **all we
+correct list but to give a glimpse at the fact that lot of them are
+related to actual state of the software, its health and health of the
+environment specific for software production. 
+
+At the end I come to the baseline of the article. It is my opinion that
+in a business that is bringing value to the user using software product **all we
 have to do is to make users of our software not care about the
 software. And the way to achieve this is that you as company
 that is giving software tool to the users should care about that software so
