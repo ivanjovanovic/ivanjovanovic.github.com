@@ -24,7 +24,7 @@ platform will heavily affect how you bring the value to the end user.
 
 Most of the people are big generalizators. When they want to say
 something, it is easier to tell it in more general way, because getting
-into details need explanations and can remove focus from te point. That
+into details need explanations and can remove focus from the point. That
 works for some cases, but there are cases when we can't simplify things
 more than the problem allows.
 
@@ -124,8 +124,7 @@ tool for easy prototyping and trying out new ideas, that quality of the
 product is not restricted by the software fallacies, that software is
 not just visible implementation but as well statistics gathering tool
 through which they can develop business ideas and prove some theories
-they might have. At the end they are responsible that give yo user value
-that is not restricted by the techical explanations of engineers.
+they might have .... 
 
 **Engineers** should do their best to learn and understand the software
 building and how to produce more quality, maintanability, flexibility
