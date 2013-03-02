@@ -95,7 +95,7 @@ According to this we create file to place our tests in <code>spec/ObserverSpec.
 <span class='line'>5</span>
 <span class='line'>6</span>
 <span class='line'>7</span>
-</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;rs.ji.observer&quot;</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;rs.ji.observer&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 </div><div class='line'>
 </div><div class='line'>    <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;should be present in the global namespace&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 </div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
@@ -348,7 +348,6 @@ Complete files:
 <span class='line'>40</span>
 <span class='line'>41</span>
 <span class='line'>42</span>
-<span class='line'>43</span>
 </pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;rs.ji.observer&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 </div><div class='line'>
 </div><div class='line'>    <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -360,12 +359,11 @@ Complete files:
 </div><div class='line'>    <span class="p">});</span>
 </div><div class='line'>
 </div><div class='line'>    <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;should be able to register callback function&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</div><div class='line'>        <span class="c1">// define anonymous function to be placed into the observer register</span>
+</div><div class='line'>        <span class="c1">// define function to be placed into the observer register</span>
 </div><div class='line'>        <span class="kd">function</span> <span class="nx">callback</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span> <span class="p">}</span>
 </div><div class='line'>        <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
 </div><div class='line'>        <span class="kd">var</span> <span class="nx">callbacks</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">ji</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">getCallbacks</span><span class="p">();</span>
 </div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-</div><div class='line'>        <span class="c1">// so we need to have first funtion in registered callbacks</span>
 </div><div class='line'>        <span class="nx">expect</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
 </div><div class='line'>    <span class="p">});</span>
 </div><div class='line'>
@@ -436,7 +434,7 @@ And the observer implementation
 </div><div class='line'>    <span class="p">}</span>
 </div><div class='line'>
 </div><div class='line'><span class="p">};</span>
-</div></code></pre></td></tr></table></div></figure> 
+</div></code></pre></td></tr></table></div></figure>
 </div>
   <div class="sharing">
   

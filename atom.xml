@@ -4,7 +4,7 @@
   <title>In search for the next abstraction</title>
   <link href="http://ivanjovanovic.com/atom.xml" rel="self"/>
   <link href="http://ivanjovanovic.com/"/>
-  <updated>2012-08-15T11:24:46+02:00</updated>
+  <updated>2013-03-02T14:35:25+01:00</updated>
   <id>http://ivanjovanovic.com/</id>
   <author>
     <name>Ivan Jovanovic</name>
@@ -74,6 +74,10 @@ It clearly shows how language encapsulates power of expression or lack
 of it and how it affects our ability to make beautiful and elegant
 programs. As well it shows how ubiquitous the concept of growing a
 languages is.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;This article got its second life on Hacker News. Quite interesting discussion with lots of great inputs developed and is worth reading it as addition to the article: &lt;a href=&quot;https://news.ycombinator.com/item?id=5308280&quot;&gt;Article on HN&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
   
@@ -439,7 +443,7 @@ According to this we create file to place our tests in &lt;code&gt;spec/Observe
 &lt;span class=&#8217;line&#8217;&gt;5&lt;/span&gt;
 &lt;span class=&#8217;line&#8217;&gt;6&lt;/span&gt;
 &lt;span class=&#8217;line&#8217;&gt;7&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;js&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;nx&quot;&gt;describe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;rs.ji.observer&amp;quot;&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;js&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;nx&quot;&gt;describe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;rs.ji.observer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;    &lt;span class=&quot;nx&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;should be present in the global namespace&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;observer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBeDefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
@@ -692,7 +696,6 @@ Complete files:
 &lt;span class=&#8217;line&#8217;&gt;40&lt;/span&gt;
 &lt;span class=&#8217;line&#8217;&gt;41&lt;/span&gt;
 &lt;span class=&#8217;line&#8217;&gt;42&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;43&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;js&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;nx&quot;&gt;describe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;rs.ji.observer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;    &lt;span class=&quot;nx&quot;&gt;beforeEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -704,12 +707,11 @@ Complete files:
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;    &lt;span class=&quot;nx&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;should be able to register callback function&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;        &lt;span class=&quot;c1&quot;&gt;// define anonymous function to be placed into the observer register&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;        &lt;span class=&quot;c1&quot;&gt;// define function to be placed into the observer register&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;        &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;        &lt;span class=&quot;nx&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;observer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;        &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callbacks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;observer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getCallbacks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callbacks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;        &lt;span class=&quot;c1&quot;&gt;// so we need to have first funtion in registered callbacks&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callbacks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
@@ -780,7 +782,7 @@ And the observer implementation
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt; 
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
 </content>
   </entry>
   
