@@ -63,3 +63,7 @@ It clearly shows how language encapsulates power of expression or lack
 of it and how it affects our ability to make beautiful and elegant
 programs. As well it shows how ubiquitous the concept of growing a
 languages is.
+
+----------
+
+This article got its second life on Hacker News. Quite interesting discussion with lots of great inputs developed and is worth reading it as addition to the article: [Article on HN](https://news.ycombinator.com/item?id=5302667 )

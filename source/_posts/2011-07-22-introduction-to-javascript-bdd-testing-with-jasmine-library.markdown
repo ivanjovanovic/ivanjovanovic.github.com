@@ -1,14 +1,14 @@
---- 
+---
 layout: post
 title: Introduction to JavaScript BDD testing with Jasmine library
-tags: 
+tags:
 - jasmine
 - javascript
 - testing
 status: publish
 type: post
 published: true
-meta: 
+meta:
   _edit_last: "1"
   _syntaxhighlighter_encoded: "1"
   dsq_thread_id: "374020783"
@@ -48,7 +48,7 @@ In TDD and BDD philosophy one rule is essential for success.
 According to this we create file to place our tests in <code>spec/ObserverSpec.js</code> and we define first test to simply check existence of the observer object.
 
 {% codeblock lang.js %}
-describe("rs.ji.observer" function () {
+describe("rs.ji.observer", function () {
 
     it("should be present in the global namespace", function () {
         expect(rs.ji.observer).toBeDefined();
@@ -205,13 +205,12 @@ describe("rs.ji.observer", function () {
     });
 
     it("should be able to register callback function", function () {
-        // define anonymous function to be placed into the observer register
+        // define function to be placed into the observer register
         function callback() { return null; }
         rs.ji.observer.register(callback);
         var callbacks = rs.ji.observer.getCallbacks();
         expect(callbacks.length).toBe(1);
-        // so we need to have first funtion in registered callbacks
-        expect(callbacks[0]).toBe(callback); 
+        expect(callbacks[0]).toBe(callback);
     });
 
     it("should be able to register multiple callbacks", function () {
@@ -261,4 +260,4 @@ rs.ji.observer = {
     }
 
 };
-{% endcodeblock %} 
+{% endcodeblock %}
