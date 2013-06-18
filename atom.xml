@@ -4,7 +4,7 @@
   <title>In search for the next abstraction</title>
   <link href="http://ivanjovanovic.com/atom.xml" rel="self"/>
   <link href="http://ivanjovanovic.com/"/>
-  <updated>2013-03-02T14:39:05+01:00</updated>
+  <updated>2013-06-18T16:14:02+02:00</updated>
   <id>http://ivanjovanovic.com/</id>
   <author>
     <name>Ivan Jovanovic</name>
@@ -1179,18 +1179,6 @@ succeeded.&lt;/p&gt;
 &lt;a title=&quot;Official FirePHP website&quot; href=&quot;http://www.firephp.org/&quot;&gt;Official FirePHP website&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Another cool thing that comes with the FirePHP is its integration posibilities with CakePHP, CodeIgniter, Drupal, ExpressionEngine, Kohana, PRADO, Symfony, TYPO3, &lt;strong&gt;Zend Framework.&lt;/strong&gt; So there is some for anyone.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>Moving to Ubuntu or Windows sucks!</title>
-    <link href="http://ivanjovanovic.com/2008/08/12/moving-to-ubuntu-or-windows-sucks"/>
-    <updated>2008-08-12T00:00:00+02:00</updated>
-    <id>http://ivanjovanovic.com/2008/08/12/moving-to-ubuntu-or-windows-sucks</id>
-    <content type="html">&lt;p&gt;&lt;img class=&quot;alignleft&quot; style=&quot;margin: 10px;&quot; src=&quot;http://www.ubuntu.com/themes/ubuntu07/images/ubuntulogo.png&quot; alt=&quot;Ubuntu logo&quot; hspace=&quot;5&quot; vspace=&quot;5&quot; width=&quot;202&quot; height=&quot;55&quot; align=&quot;left&quot; /&gt;While writing this post, post-intallation update on my fresh Ubuntu installation is under its way. It was long time ago I started to feel constraints of Windows as web development environment. So, very logical step was to move to something more developer friendly than user (read dummy) friendly. After testing Ubuntu with VMware player I decided to go step further and use &lt;a title=&quot;WUBI (Ubuntu Installer for Windows)&quot; href=&quot;http://wubi-installer.org/&quot;&gt;WUBI (Windows Ubuntu installer)&lt;/a&gt; to intall Ubuntu as Windows application in a folder that will act as separate filesystem for my linux installation.&lt;/p&gt;
-
-&lt;p&gt;Yes, I know it is not perfect solution, but since I&amp;#8217;m running it on Toshiba laptop I was worried about drivers and related staff  and didn&amp;#8217;t want to stay even without the Vista crap (TM).
-After all installation was smooth and harmless and it seems that everything works as expected for now. Setting the development environment is the next challenge I&amp;#8217;ll take. Apache, MySQL, SVN &amp;#8230; here I come :)&lt;/p&gt;
 </content>
   </entry>
   
