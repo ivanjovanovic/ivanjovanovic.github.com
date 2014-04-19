@@ -1,0 +1,228 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Am I stupid, or is that = this stupid? |  Ivan Jovanovic</title>
+  <meta name="author" content="Ivan Jovanovic">
+  
+
+  
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+  <!-- end CSS-->
+
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="/javascripts/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body id="post">
+
+  <div id="container">
+    <header>
+    <a href="http://ivanjovanovic.com">Home</a>
+</header>
+
+    <article>
+
+
+  <h1 class="article-title">Am I Stupid, or Is That = This Stupid?</h1>
+  <div class="article-content"><p>JavaScript development has got really much momentum and its popularity is peaking. In the moment of design it was probably never foreseen as such success. Maybe that is why we have to satisfy to using only its <a title="No affiliates ;)" href="http://www.amazon.com/exec/obidos/ASIN/0596517742/">&quot;Good Parts&quot;</a>. There are lot of compromises with it, in order to make programming it a success overall. One thing that I always found weird is usage of <strong>that = this</strong> concept. JavaScript guru <a title="The guy that is bravely hiding Chuck Norris on the picture" href="http://www.crockford.com/">Douglas Crockford</a> <a href="http://javascript.crockford.com/private.html">explains on his website</a> this concept of preserving connection of method with parent object regardless of the context of invocation. In practical usage I saw this pattern used for essentially the same reason but on other places. Consider this example (code purpose and quality in general do not matter that much)</p>
+
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+<span class='line'>9</span>
+<span class='line'>10</span>
+<span class='line'>11</span>
+<span class='line'>12</span>
+<span class='line'>13</span>
+<span class='line'>14</span>
+<span class='line'>15</span>
+<span class='line'>16</span>
+<span class='line'>17</span>
+<span class='line'>18</span>
+</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'><span class="c1">// Returns array of positions of current players on the field</span>
+</div><div class='line'><span class="nx">tofu</span><span class="p">.</span><span class="nx">Table</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getPlayerPositions</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>    <span class="kd">var</span> <span class="nx">positions</span> <span class="o">=</span> <span class="p">[];</span>
+</div><div class='line'>    <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span>
+</div><div class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">rods</span><span class="p">,</span>
+</div><div class='line'>    <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">rod</span><span class="p">)</span> <span class="p">{</span>
+</div><div class='line'>        <span class="kd">var</span> <span class="nx">left</span> <span class="o">=</span> <span class="nx">that</span><span class="p">.</span><span class="nx">getRodDistance</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</div><div class='line'>        <span class="c1">// produce positions for all players</span>
+</div><div class='line'>        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">lt</span><span class="p">;</span> <span class="nx">rod</span><span class="p">.</span><span class="nx">men_number</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</div><div class='line'>            <span class="kd">var</span> <span class="nx">position</span> <span class="o">=</span> <span class="p">{</span>
+</div><div class='line'>                <span class="nx">left</span><span class="o">:</span> <span class="nx">left</span><span class="p">,</span>
+</div><div class='line'>                <span class="nx">top</span><span class="o">:</span> <span class="nx">j</span> <span class="o">*</span> <span class="nx">rod</span><span class="p">.</span><span class="nx">men_distance</span> <span class="o">+</span> <span class="nx">rod</span><span class="p">.</span><span class="nx">position</span>
+</div><div class='line'>            <span class="p">}</span>
+</div><div class='line'>            <span class="nx">positions</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">position</span><span class="p">);</span>
+</div><div class='line'>        <span class="p">}</span>
+</div><div class='line'>    <span class="p">});</span>
+</div><div class='line'>    <span class="k">return</span> <span class="nx">positions</span><span class="p">;</span>
+</div><div class='line'><span class="p">}</span>
+</div></code></pre></td></tr></table></div></figure>
+
+<p>The main point here is that we try to preserve reference to parent object with <strong>var that = this</strong> because $.each(this.rods, &#8230; ) will overwrite reference to local variable <strong>this</strong>. In that case we access closure reference <strong>that</strong> to refer to our original object.</p>
+
+<p>And there is a problem, I keep seeing this pattern all around. As I understand programming, proper naming of &quot;things&quot; is very important. And one that calls everything around in the terms of <strong>this</strong> and <strong>that</strong> might not be considered much smart ;) Can&#8217;t we have a name for <strong>that</strong> reference. Considering same example with small change in code I think it looks more natural than before and more readable and self explainable
+<figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+<span class='line'>9</span>
+<span class='line'>10</span>
+<span class='line'>11</span>
+<span class='line'>12</span>
+<span class='line'>13</span>
+<span class='line'>14</span>
+<span class='line'>15</span>
+<span class='line'>16</span>
+<span class='line'>17</span>
+<span class='line'>18</span>
+</pre></td><td class='code' width='100%'><pre><code class='js'><div class='line'><span class="c1">// Returns array of positions of current players on the field</span>
+</div><div class='line'><span class="nx">tofu</span><span class="p">.</span><span class="nx">Table</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getPlayerPositions</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>    <span class="kd">var</span> <span class="nx">positions</span> <span class="o">=</span> <span class="p">[];</span>
+</div><div class='line'>    <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">this</span>
+</div><div class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">rods</span><span class="p">,</span>
+</div><div class='line'>    <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">rod</span><span class="p">)</span> <span class="p">{</span>
+</div><div class='line'>        <span class="kd">var</span> <span class="nx">left</span> <span class="o">=</span> <span class="nx">table</span><span class="p">.</span><span class="nx">getRodDistance</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</div><div class='line'>        <span class="c1">// produce positions for all players</span>
+</div><div class='line'>        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">lt</span><span class="p">;</span> <span class="nx">rod</span><span class="p">.</span><span class="nx">men<em>number</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</div><div class='line'>            <span class="kd">var</span> <span class="nx">position</span> <span class="o">=</span> <span class="p">{</span>
+</div><div class='line'>                <span class="nx">left</span><span class="o">:</span> <span class="nx">left</span><span class="p">,</span>
+</div><div class='line'>                <span class="nx">top</span><span class="o">:</span> <span class="nx">j</span> <span class="o">*</span> <span class="nx">rod</span><span class="p">.</span><span class="nx">men</em>distance</span> <span class="o">+</span> <span class="nx">rod</span><span class="p">.</span><span class="nx">position</span>
+</div><div class='line'>            <span class="p">}</span>
+</div><div class='line'>            <span class="nx">positions</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">position</span><span class="p">);</span>
+</div><div class='line'>        <span class="p">}</span>
+</div><div class='line'>    <span class="p">});</span>
+</div><div class='line'>    <span class="k">return</span> <span class="nx">positions</span><span class="p">;</span>
+</div><div class='line'><span class="p">}</span>
+</div></code></pre></td></tr></table></div></figure></p>
+</div>
+  <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ivanjovanovic.com/2011/04/27/am-i-stupid-or-is-that-this-stupid" data-via="ivanjovanovic" data-counturl="http://ivanjovanovic.com/2011/04/27/am-i-stupid-or-is-that-this-stupid" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+  
+    <section>
+      <h1>Comments</h1>
+      <div id="disqus_thread"><div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'ivanjovanovic';
+  var disqus_identifier = 'http://ivanjovanovic.com/2011/04/27/am-i-stupid-or-is-that-this-stupid';
+  var disqus_url = 'http://ivanjovanovic.com/2011/04/27/am-i-stupid-or-is-that-this-stupid';
+  //var disqus_developer = 1;
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </section>
+  
+
+</article>
+
+
+        <footer>
+
+    </footer>
+
+  </div>
+
+    <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="/javascripts/app.js"></script>
+  <!-- end scripts-->
+
+	
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+ 
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-800972-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+</body>
+</html>
+
