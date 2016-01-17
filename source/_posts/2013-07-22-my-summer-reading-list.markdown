@@ -1,0 +1,43 @@
+---
+layout: post
+title: "My Summer Reading List"
+date: 2013-07-22 19:05
+comments: true
+categories:
+---
+
+This summer I have more time to spend reading and thinking since I took a bit extended "between jobs" period.
+
+Last couple of months I had time to step back from the established daily routines, reexamine them and think deeply about how things really are, where they should go and what are the means to achieve what is really deep in my soul. I read some great books and some I am still reading. Without the special plan or intention, now I see that overall the common denominator between them turned out to be the exploration into how we function and how mastery and greatness is achieved. It turned out as well that most of them are not technical, which was what I consumed mostly in the last years.
+
+Here is a list of the ones I found the most valuable with the short description putting it up in hope that you can find something that is interesting to you and motivate you to share your summer books as well.
+
+## [Thinking fast and slow](http://www.amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374533555) - Daniel Kahneman
+
+This book presents in a more popular way a number of psychological experiments which unveil how our brain operates in two distinct modes. First (automatic) mode is the mode which is as I call it "cache of the brain" filled up with things we already perceive to know and don’t need to reevaluate. Automatic stands for its nature to give automatic answers without really engaging the second (thinking) mode of the brain which is able to reevaluate the question and see it in a deeper and more thoughtful way. The books shows number of ways how the first, automatic, mode can be tricked and how most of us fail to recognize situations in which we have to deliberately distrust it in order to get to the correct answer based on reality and not our projection of it through previous experiences. Second brain is as well the brain that refills the cache through the learning process so our automatic reactions can be more precise.
+
+I have found numerous relations of the ideas from the book to my previous experiences and it definitely stressed my approach to everyday things.
+
+## [Drawing on the right side of the brain](http://www.amazon.com/Drawing-Right-Side-Brain-ebook/dp/B005KGJWRG/ref=sr_1_3?s=books&ie=UTF8&qid=1374502238&sr=1-3&keywords=drawing+on+the+right+side+of+the+brain) - Betty Edwards
+
+This pretty famous book is a great toolkit for exploring the relation between the analytical (left brain) and more expressive and creative (right brain) parts of your brain. It easily convinces you in a pragmatic way through a very visual evidence of "before and after" training drawings how much more is there to be seen if one is able to turn the analytical engine off and turn on the sensors without premature interpretation within the context of pre-established symbolic representation. Beside the fact that it is very cool to be able to draw, for me it is even cooler to be able to see things more deeply, clearly and from different points of view without being bound only to the already existing you. The author itself points out how much this helps her students from various creative fields to open up and start seeing things through different eyes.
+
+## [The Art of doing science and engineering (Learning to Learn)](http://www.amazon.com/Art-Doing-Science-Engineering-ebook/dp/B000P2XFPA/ref=sr_1_1?s=books&ie=UTF8&qid=1374502303&sr=1-1&keywords=the+art+of+doing+science+and+engineering) - Richard W. Hamming
+
+Very appreciated classic by the engineers aiming to greatness. The collection of lectures of a famous mathematician to the students before they make first steps into their careers. Lectures on life and methods to achieve greatness in own field. Professor Hamming shares his experiences about how he approached certain points in his career, how he looked at things and how he systematically achieved things in various fields shining a lot of light into his model of thinking through challenging years. Very inspirational book and one to get back to it every now and then.
+
+## [Mastery](http://www.amazon.com/Mastery-Keys-Success-Long-Term-Fulfillment/dp/0452267560/ref=sr_1_1?s=books&ie=UTF8&qid=1374502336&sr=1-1&keywords=mastery+george+leonard) - George Leonard (1991)
+
+Not to be confused with the recent "Mastery" book of Robert Greene. Comparing to it, the "Mastery" of George Leonard presents personal experiences of an Aikido master on his road to achieving greatness. It is very deep, but not philosophical, very pragmatic, but not instructional. Author, as a teacher and a student writes about what he learned during life path and transfers his insights about road to mastery and misconceptions, fallacies and potential pitfalls on that road. There are several things I found enlightening here. First is about the plateaus and lack of patience. Most of our life we spend on some steady level wishing to climb up to the next levels. If mastery can be defined in one sentence it is the readiness to deliberately train and practice while being on a plateau even when there is no in sight idea of raising to the next level. Most of us just give up on first doubt that it will not make sense to do this exercise because the benefit is so far away or maybe even not comprehensible. The ones that are patient, deliberate and have discipline to go through the plateau are rewarded by jump to the next level, where the story begins again. Second is about being present and focused on every detail of your work. Training your attention and presence in doing anything is probably the most basic cognitive skill since without focus other cognitive processes do not get activated in a high enough level. Learning and performance is highly degraded with the lack of attention. It is long ago said that "How you do one thing, it is how you do all of them", so being present and attentive in everything you do just becomes a habit over time.
+
+## [Focusing](http://www.amazon.com/Focusing-ebook/dp/B004CLYCSO/ref=sr_1_1?s=books&ie=UTF8&qid=1374502375&sr=1-1&keywords=focusing+by+eugene+gendlin) - Eugene T. Gendlin
+
+Probably the most popular-psychologish book in the list, but to me a very important content. Book is not very broad, it merely gives the idea that a person must spend regular time with oneself and listen to what is happening inside and what the inner voice is telling. It gives, lets say, the encouragement to trust the process of getting deep into yourself and understand better the feeling in the stomach, to learn from it and transform yourself through knowing yourself better. It is wrapped in a more marketing oriented way towards the idea that author successfully sells as his business, but beside that it is a good insight.
+
+## [Hackers and Painters](http://www.amazon.com/Hackers-Painters-ebook/dp/B0026OR2NQ/ref=sr_1_1?s=books&ie=UTF8&qid=1374502400&sr=1-1&keywords=hackers+and+painters) - Paul Graham
+
+Collection of essays of famous Paul Graham on various aspects of creativity and hacker culture in the digital world. Overall good read. The only thing I have problem with this book is that I am already in the field, trained for some predefined responses and points of view which gives me hard feeling of "OK I know this, will just glance over it" thus fighting my patience to thoroughly read to the deep insights Paul Graham certainly has to share drawing from his experience and intelligence.
+
+If there is something I have learned, it is "Slow down and be water my friend!"
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/pGFf3SRP1bE" frameborder="0" allowfullscreen=""></iframe>
