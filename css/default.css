@@ -106,7 +106,8 @@ a {
 }
 
 
-@media (max-width: 640px) {
+@media only screen and (max-width: 640px)
+{
     #layout {
         flex-direction: column;
     }
