@@ -6,7 +6,7 @@ title: Ivan Jovanovic
 
 I helped building some of the biggest Swiss websites like <a href="http://tilllate.ch">tilllate.com</a> (one of the biggest European social networks in the pre-Facebook era) and <a href="https://local.ch">local.ch</a>, one of the most visited Swiss websites.
 
-From mid 2013 to the end of 2016 I worked at Microsoft R&D center in Zurich, leading a front-end team responsible for building Microsoft Social Engagement, complex web product for social data acquisition, analytics and cross-channel engagement, part of [Microsoft Dynamic 365](https://www.microsoft.com/en-us/dynamics/crm-social.aspx) offer. Currently, I am providing services in the domain of web software engineering as an independent contractor.
+From mid 2013 to the end of 2016 I worked at Microsoft R&D center in Zurich, leading a front-end team responsible for building Microsoft Social Engagement, complex web product for social data acquisition, analytics and cross-channel engagement, part of [Microsoft Dynamics 365](https://www.microsoft.com/en-us/dynamics/crm-social.aspx) offer. Currently, I am providing services in the domain of web software engineering as an independent contractor.
 
 Through years I worked in number of roles and gathered experiences from almost every aspect of the software development process, from quality assurance to people and project management. I acquired deep understanding of:
 
