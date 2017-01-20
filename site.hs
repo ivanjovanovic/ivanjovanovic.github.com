@@ -72,9 +72,3 @@ postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
-
-folderedPath :: Identifier -> FilePath
-folderedPath identifier =
-  "/" ++ intercalate "-" (take 3 splitted) ++ intercalate "-" (drop 3 splitted) ++ ".html"
-  where
-    splitted = splitOn "-" (toFilePath identifier)
