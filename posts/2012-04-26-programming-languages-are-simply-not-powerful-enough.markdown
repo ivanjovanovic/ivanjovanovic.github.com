@@ -56,7 +56,7 @@ probably one of the best resources on principles of reasoning about
 elegant program design.
 
 One exceptionally good resource is the Guy Steel's keynote from OOPSLA'98 conference
-about [Growing a Language](http://video.google.com/videoplay?docid=-8860158196198824415).
+about [Growing a Language](https://www.youtube.com/watch?v=_ahvzDzKdB0).
 It clearly shows how language encapsulates power of expression or lack
 of it and how it affects our ability to make beautiful and elegant
 programs. As well it shows how ubiquitous the concept of growing a
