@@ -2,28 +2,33 @@
 title: Ivan Jovanovic
 ---
 
-<img class="personal-photo" src="/images/ivanjovanovic.png" />Hi, I'm Ivan, professional web software engineer with 15 years of experience in building web products of high load, scale and complexity using various technologies.
+<img class="personal-photo" src="./images/ivanjovanovic.png" />Hi, I’m Ivan, an experienced full-stack web software engineer providing as independent contractor or consultant. I want to help **your ideas happen** and **your engineering problems get solved**.
 
-I helped building some of the biggest Swiss websites like <a href="http://tilllate.ch">tilllate.com</a> (one of the biggest European social networks in the pre-Facebook era) and <a href="https://local.ch">local.ch</a>, one of the most visited Swiss websites.
+Currently, I am building a web application for simulating human social interactions for the project <a href="http://fuel.social">fuel.social</a>. Project is implemented as real-time **Golang** backend and **React** frontend with **MongoDB** for storage. I am owning whole development process from working with customer on grooming the business related details to implementation and automated testing. Customer is providing Ui/UX designs.
 
-From mid 2013 to the end of 2016 I worked at Microsoft R&D center in Zurich, leading a front-end team responsible for building Microsoft Social Engagement, complex web product for social data acquisition, analytics and cross-channel engagement, part of [Microsoft Dynamics 365](https://www.microsoft.com/en-us/dynamics/crm-social.aspx) offer. Currently, I am providing services in the domain of web software engineering as an independent contractor.
+Skills I bring when you hire me:
 
-Through years I worked in number of roles and gathered experiences from almost every aspect of the software development process, from quality assurance to people and project management. I acquired deep understanding of:
+h2. Goal and business value oriented
 
-* _Object-oriented, functional programming paradigms and advanced programming concepts._
-* _Design and implementation of client and backend architectures._
-* _Team leadership, organisation and project delivery based on agile principles._
-* _Focus on analysis and design of business goals through communication with product management_
-* _Process of continuous delivery, deployment and production operations of a web product._
-* _Quality assurance process organisation and test automation_
-* _People management based on growth mindset and aspiration towards personal growth and excellence._
-* _Hiring, team expansion and product growth as member of a product lead group._
-* _Working in international, distributed remote setup across continents._
+I am focused on using my skills to bring biggest business value I can within the project.
+Focusing on
 
-Through my work I focused my expertise on the application side of the projects where I regularly contributed as a full-stack web developer. I have used mostly following technologies:
+* Polyglot full-stack development
 
-* _Javascript/TypeScript, React, jQuery, Backbone, HTML, CSS (with pre-processors), Grunt/Webpack and number of related client-side libraries and concepts_
-* _Java (Spring, Jetty, Maven, GWT), Ruby, PHP_
-* _Puppet, Docker, Azure_
+I build complex web applications since 2001.
+I worked as Senior Software Engineer at local.ch as one the most visited Swiss websites.
+At Microsoft R&D center in Zurich I lead a team building a complex analytics application for Microsoft Dynamics 365 worldwide customers.
+In the last 8 years I was always holding senior positions with high responsibility and accountability over design and implementation of advanced web features.
 
-As a curious engineer, I am committed to continuous improvement of my technical and non-technical skills needed for best possible contribution in the process of web product delivery.
+Through career I deployed to production applications based on different stacks and programming languages.
+
+* Experience with complete development process from feature design to continuous integration and deployment
+
+In different projects and occasions I worked as development lead, product owner, scrum master, tech lead, planner of QA activities.
+
+* Organizational, communication and management skills
+
+At Microsoft I was engineering manager of team of 5 exceptional engineers.
+I participated in the product's team organization, planning and growth.
+Hired 2 of my 5 team members, leading and organizing the hiring process.
+Focused on personal growth of members of my team and striving to engineering excellence.
